@@ -1,0 +1,118 @@
+install.packages("dplyr")
+install.packages("dbplyr")
+install.packages("sqldf")
+install.packages("ggplot2")
+install.packages("plotly")
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(dbplyr)
+library(sqldf)
+Datos <- read.csv(file = "C:/Users/km1051528/Desktop/RecursosKaren/Datos.csv", header = TRUE)
+
+Año<-Datos[,3:3]
+Año[grepl("N/A", Año)] <- NA
+Año[Año ==""] <- NA
+
+
+Bss <-Datos[,9:9] 
+Bss[grepl("N/A", Bss)] <- NA
+Bss[Bss ==""] <- NA
+
+
+Tss <-Datos[ ,12:12]
+Tss[grepl("N/A", Tss)] <- NA
+Tss[Tss ==""] <- NA
+
+
+Edge <-Datos[ ,15:15]
+Edge[grepl("N/A", Edge)] <- NA
+Edge[Edge ==""] <- NA
+
+THT <-Datos[ ,18:18]
+THT[grepl("N/A", THT)] <- NA
+THT[THT ==""] <- NA
+
+
+
+Thic <-Datos[ ,21:21]
+Thic[grepl("N/A", BRK)] <- NA
+Thic[Thic ==""] <- NA
+
+
+AFA <-Datos[ ,24:24]
+AFA[grepl("N/A", AFA)] <- NA
+AFA[AFA ==""] <- NA
+
+
+BRK <-Datos[ ,27:27]
+BRK[grepl("N/A", BRK)] <- NA
+BRK[BRK ==""] <- NA
+
+data = data.frame( Año = Año, Bss = Bss , Tss = Tss,Edge=Edge, THT= THT,Thic= Thic,  AFA= AFA, BRK= BRK )
+
+
+corridas_año <- data.frame(sqldf("SELECT Año, count(Bss) as Corridas_BSS,count(Tss) AS Corridas_TSS, count(Edge) AS Corridas_Edge,count(THT) AS Corridas_THT,count(Thic) AS Corridas_THICKCC, count(AFA) AS Corridas_AFA, count(BRK) AS Corridas_BRACKET   FROM data GROUP BY Año"))
+
+'Cantidad de Corridas'
+fig <- corridas_año %>% plot_ly()
+fig <- fig %>% add_trace(x = ~Año, y = ~Corridas_BSS, type = 'bar', name='BSS',
+                           text = ~Corridas_BSS, textposition = 'auto',
+                           marker = list(color = 'rgb(246, 232, 54)',
+                                         line = list(color = 'rgb(23,23,23)', width = 0)))
+  
+fig <- fig %>% add_trace(x = ~Año, y = ~Corridas_TSS, type = 'bar', name='TSS',
+                         text = ~Corridas_TSS, textposition = 'auto',
+                         marker = list(color = 'rgb(159, 218, 58)',
+                                       line = list(color = 'rgb(23,23,23)', width = 0)))
+
+
+fig <- fig %>% add_trace(x = ~Año, y = ~Corridas_Edge, type = 'bar', name='Edge Bonding',
+                         text = ~Corridas_Edge, textposition = 'auto',
+                         marker = list(color = 'rgb(74, 193, 109)',
+                                       line = list(color = 'rgb(23,23,23)', width = 0)))
+
+
+fig <- fig %>% add_trace(x = ~Año, y = ~Corridas_THT, type = 'bar', name='THT',
+                         text = ~Corridas_THT, textposition = 'auto',
+                         marker = list(color = 'rgb(31, 161, 135)',
+                                       line = list(color = 'rgb(23,23,23)', width = 0)))
+
+fig <- fig %>% add_trace(x = ~Año, y = ~Corridas_THICKCC, type = 'bar', name='Thick CC',
+                         text = ~Corridas_THICKCC, textposition = 'auto',
+                         marker = list(color = 'rgb(58,200,225)',
+                                       line = list(color = 'rgb(23,23,23)', width = 0)))
+
+fig <- fig %>% add_trace(x = ~Año, y = ~Corridas_AFA, type = 'bar', name='AFA',
+                         text = ~Corridas_AFA, textposition = 'auto',
+                         marker = list(color = 'rgb(54, 92, 141)',
+                                       line = list(color = 'rgb(23,23,23)', width = 0)))
+
+fig <- fig %>% add_trace(x = ~Año, y = ~Corridas_BRACKET, type = 'bar', name='Braket',
+                         text = ~Corridas_BRACKET, textposition = 'auto',
+                         marker = list(color = 'rgb(70, 51, 126)',
+                                       line = list(color = 'rgb(23,23,23)', width = 0)))
+
+
+fig <- fig %>% layout(title = "Cantidad de corridas",
+                      barmode = 'group',
+                      xaxis = list(title = "Meses"),
+                      yaxis = list(title = "Etapa"))
+
+fig
+
+
+'SEGUNDA GRAFICA '
+
+Datatime<- data.frame(StatusBss  = Datos[,10:10] >= Datos[,11:11],StatusTss= Datos[,13:13] >=  Datos[,14:14],
+                      StatusEdge = Datos[,16:16] >= Datos[,17:17],StatusTHT= Datos[,19:19] >=  Datos[,20:20],
+                      StatusThic = Datos[,22:22] >= Datos[,23:23],StatusAFA= Datos[,25:25] >=  Datos[,26:26] ,
+                      StatusBRK  = Datos[,28:28] >= Datos[,29:29])
+
+Datatime$StatusBss[is.na(data$Bss)] <- NA
+Datatime$StatusTss[is.na(data$Tss)] <- NA
+Datatime$StatusEdge[is.na(data$Edge)] <- NA
+Datatime$StatusTHT[is.na(data$THT)] <- NA
+Datatime$StatusThic[is.na(data$Thic)] <- NA
+Datatime$StatusAFA[is.na(data$AFA)] <- NA
+Datatime$StatusBRK[is.na(data$BRK)] <- NA
