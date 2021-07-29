@@ -6,37 +6,84 @@ library(sqldf)
 library(shiny)
 library(DT)
 library(shinydashboard)
+library(sf)
 
 # or in global.R
 genders <- c("Ene", "Feb")
 
 # Define UI
 ui <- dashboardPage(
+  
   dashboardHeader(),
-  dashboardSidebar(  fluidPage(
+  dashboardSidebar(  
+    
+    fluidPage(
     
     fileInput('target_upload', 'Choose file to upload',
               accept = c(
                 'text/csv',
                 'text/comma-separated-values',
-                '.csv'
-              )),
+                '.csv')
+              ),
     
-    uiOutput("shiny_gender.UI"),
-   
+
     
-  )),
+
+    
+  #Using the javaScript Shiny on Input Change function to restore the input value.
+  tags$script(' 
+  
+  document.getElementById("target_upload").onclick = function() {
+  var number = Math.random();
+  
+  }; 
+    
+  Shiny.addCustomMessageHandler("myCallbackHandler",
+  function(color) {
+   Shiny.onInputChange("mydata", color);
+  });
+        
+ ')  ,verbatimTextOutput("results")
+  )
+  ),
   
   dashboardBody(
     DT::dataTableOutput("sample_table")
 
 )
+
+
 )
 
 
 
 # Define server logic
-server <- shinyServer(function(input, output) {
+server <- shinyServer(function(input, output,  session) {
+  
+  
+  observe({
+    input$mydata
+    color = genders
+    session$sendCustomMessage(type = "myCallbackHandler", color)
+  })
+  
+  
+  
+  output$results <- renderPrint({
+    input$mydata
+  })
+  
+
+
+  
+   output$sample_table<- DT::renderDataTable({
+    df <- df_products_upload()
+    
+    DT::datatable(df)
+    
+  })
+  
+  
     
     df_products_upload <- reactive({
         inFile <- input$target_upload
@@ -91,34 +138,19 @@ server <- shinyServer(function(input, output) {
         
         data = data.frame(  Mes_Fiscal = MesF, Bss = Bss , Tss = Tss,Edge=Edge, THT= THT,Thic= Thic,  AFA= AFA, BRK= BRK, Phase= Phase )
         
-
+        genders=sqldf("SELECT  Mes_Fiscal FROM data where Mes_Fiscal is not Null group by Mes_Fiscal ")
 
       
-
-        return(data)
-    
-    })
-    
-    
-    shiny_gender.list <- reactive  ({
      
-      unlist( sqldf("SELECT  Mes_Fiscal FROM data where Mes_Fiscal is not Null group by Mes_Fiscal "))
-    })  
+        return(data)
+        
+ 
+        
     
-    output$shiny_gender.UI <- renderUI({
-      selectInput( "shiny_gender",
-                   label="Select car",#"Select Gender",
-                   choices =shiny_gender.list()
-      )
-    })  
-    
-
-    output$sample_table<- DT::renderDataTable({
-        df <- df_products_upload()
-      
-        DT::datatable(df)
-      
     })
+    
+    
+    
     
 
     
