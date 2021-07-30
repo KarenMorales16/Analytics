@@ -7,9 +7,9 @@ library(shiny)
 library(DT)
 library(shinydashboard)
 library(sf)
+library(shinymaterial)
 
-# or in global.R
-genders <- c("Ene", "Feb")
+genders = list()
 
 # Define UI
 ui <- dashboardPage(
@@ -18,41 +18,24 @@ ui <- dashboardPage(
   dashboardSidebar(  
     
     fluidPage(
-    
-    fileInput('target_upload', 'Choose file to upload',
-              accept = c(
-                'text/csv',
-                'text/comma-separated-values',
-                '.csv')
-              ),
-    
-
-    
-
-    
-  #Using the javaScript Shiny on Input Change function to restore the input value.
-  tags$script(' 
-  
-  document.getElementById("target_upload").onclick = function() {
-  var number = Math.random();
-  
-  }; 
-    
-  Shiny.addCustomMessageHandler("myCallbackHandler",
-  function(color) {
-   Shiny.onInputChange("mydata", color);
-  });
-        
- ')  ,verbatimTextOutput("results")
-  )
+      
+      fileInput('target_upload', 'Choose file to upload',
+                accept = c(
+                  'text/csv',
+                  'text/comma-separated-values',
+                  '.csv')
+      ),  
+      uiOutput('Lista')
+    )
   ),
   
-  dashboardBody(
+  dashboardBody( 
+    uiOutput('value'),
     DT::dataTableOutput("sample_table")
-
-)
-
-
+   
+  )
+  
+  
 )
 
 
@@ -61,22 +44,9 @@ ui <- dashboardPage(
 server <- shinyServer(function(input, output,  session) {
   
   
-  observe({
-    input$mydata
-    color = genders
-    session$sendCustomMessage(type = "myCallbackHandler", color)
-  })
-  
-  
-  
-  output$results <- renderPrint({
-    input$mydata
-  })
-  
 
-
-  
-   output$sample_table<- DT::renderDataTable({
+  output$sample_table<- DT::renderDataTable({
+    
     df <- df_products_upload()
     
     DT::datatable(df)
@@ -84,77 +54,80 @@ server <- shinyServer(function(input, output,  session) {
   })
   
   
+  
+  df_products_upload <- reactive({
+    inFile <- input$target_upload
+    if (is.null(inFile))
+      return(NULL)
     
-    df_products_upload <- reactive({
-        inFile <- input$target_upload
-        if (is.null(inFile))
-            return(NULL)
-        
-        df <- read.csv(inFile$datapath, header = TRUE)
-        'return(df)'
-       
-        MesF<-df$Mes.Fiscal
-        MesF[grepl("N/A", MesF)] <- NA
-        MesF[MesF ==""] <- NA
-        
-        Bss <-df$BSS..
-        Bss[grepl("N/A", Bss)] <- NA
-        Bss[Bss ==""] <- NA
-        
-        
-        Tss <-df$TSS..
-        Tss[grepl("N/A", Tss)] <- NA
-        Tss[Tss ==""] <- NA
-        
-        Edge <-df$Edge.Bonding..
-        Edge[grepl("N/A", Edge)] <- NA
-        Edge[Edge ==""] <- NA
-        
-        THT <-df$THT..
-        THT[grepl("N/A", THT)] <- NA
-        THT[THT ==""] <- NA
-        
-        
-        
-        Thic <-df$Thick.CC..
-        Thic[grepl("N/A", Thic)] <- NA
-        Thic[Thic ==""] <- NA
-        
-        
-        AFA <-df$AFA..
-        AFA[grepl("N/A", AFA)] <- NA
-        AFA[AFA ==""] <- NA
+    df <- read.csv(inFile$datapath, header = TRUE)
+    'return(df)'
     
-        
-        BRK <-df$Braket..
-        BRK[grepl("N/A", BRK)] <- NA
-        BRK[BRK ==""] <- NA
-        
-        Phase <-df$Phase
-        Phase[grepl("N/A", Phase)] <- NA
-        Phase[Phase ==""] <- NA
-        
-        
-        
-        data = data.frame(  Mes_Fiscal = MesF, Bss = Bss , Tss = Tss,Edge=Edge, THT= THT,Thic= Thic,  AFA= AFA, BRK= BRK, Phase= Phase )
-        
-        genders=sqldf("SELECT  Mes_Fiscal FROM data where Mes_Fiscal is not Null group by Mes_Fiscal ")
-
-      
+    MesF<-df$Mes.Fiscal
+    MesF[grepl("N/A", MesF)] <- NA
+    MesF[MesF ==""] <- NA
+    
+    Bss <-df$BSS..
+    Bss[grepl("N/A", Bss)] <- NA
+    Bss[Bss ==""] <- NA
+    
+    
+    Tss <-df$TSS..
+    Tss[grepl("N/A", Tss)] <- NA
+    Tss[Tss ==""] <- NA
+    
+    Edge <-df$Edge.Bonding..
+    Edge[grepl("N/A", Edge)] <- NA
+    Edge[Edge ==""] <- NA
+    
+    THT <-df$THT..
+    THT[grepl("N/A", THT)] <- NA
+    THT[THT ==""] <- NA
+    
+    
+    
+    Thic <-df$Thick.CC..
+    Thic[grepl("N/A", Thic)] <- NA
+    Thic[Thic ==""] <- NA
+    
+    
+    AFA <-df$AFA..
+    AFA[grepl("N/A", AFA)] <- NA
+    AFA[AFA ==""] <- NA
+    
+    
+    BRK <-df$Braket..
+    BRK[grepl("N/A", BRK)] <- NA
+    BRK[BRK ==""] <- NA
+    
+    Phase <-df$Phase
+    Phase[grepl("N/A", Phase)] <- NA
+    Phase[Phase ==""] <- NA
+  
+    
+    data =  data.frame(  Mes_Fiscal = MesF, Bss = Bss , Tss = Tss,Edge=Edge, THT= THT,Thic= Thic,  AFA= AFA, BRK= BRK, Phase= Phase )
      
-        return(data)
-        
- 
-        
+    genders  <<- as.list(sqldf("SELECT  Mes_Fiscal FROM data where Mes_Fiscal is not Null group by Mes_Fiscal "))
+   
+     return(data)
     
-    })
+  })
+  
+  
+  output$Lista <- renderUI({
+    inFile <- input$target_upload
+    if (is.null(inFile))
+      return(NULL)
+      selectInput("select", label = h5("Mes Fiscal"), 
+                  choices = genders, 
+                  selected = 1)
+      
     
-    
-    
-    
+  })
 
-    
-    
+  output$value <- renderPrint({ input$select })  
+  
+  
 }
 )
 
