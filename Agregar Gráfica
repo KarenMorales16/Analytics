@@ -1,0 +1,204 @@
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(dbplyr)
+library(sqldf)
+library(shiny)
+library(DT)
+library(shinydashboard)
+library(sf)
+library(shinymaterial)
+
+genders = list()
+corridas_ano = data.frame()
+# Define UI
+ui <- dashboardPage(
+
+  dashboardHeader(),
+  dashboardSidebar(  
+    
+    fluidPage(
+      
+      fileInput('target_upload', 'Choose file to upload',
+                accept = c(
+                  'text/csv',
+                  'text/comma-separated-values',
+                  '.csv')
+      ),  
+      uiOutput('Lista')
+    )
+  ),
+  
+  dashboardBody( 
+    mainPanel(
+      tabsetPanel(
+        tabPanel("Corridas",  plotlyOutput("graph"),DT::dataTableOutput("sample_table")),
+        tabPanel("Requerimientos", verbatimTextOutput("summary")),uiOutput('value'),
+        tabPanel("Out of time", tableOutput("tabla"))
+      )),
+    
+   
+   
+   
+  )
+  
+  
+)
+
+
+
+# Define server logic
+server <- shinyServer(function(input, output,  session) {
+  
+  
+
+  output$sample_table<- DT::renderDataTable({
+    
+    df <- df_products_upload()
+    
+    DT::datatable(df)
+    
+  })
+  
+  
+  
+  df_products_upload <- reactive({
+    inFile <- input$target_upload
+    if (is.null(inFile))
+      return(NULL)
+    
+    df <- read.csv(inFile$datapath, header = TRUE)
+    'return(df)'
+    
+    MesF<-df$Mes.Fiscal
+    MesF[grepl("N/A", MesF)] <- NA
+    MesF[MesF ==""] <- NA
+    
+    
+    
+    Bss <-df$BSS..
+    Bss[grepl("N/A", Bss)] <- NA
+    Bss[Bss ==""] <- NA
+    
+    
+    Tss <-df$TSS..
+    Tss[grepl("N/A", Tss)] <- NA
+    Tss[Tss ==""] <- NA
+    
+    Edge <-df$Edge.Bonding..
+    Edge[grepl("N/A", Edge)] <- NA
+    Edge[Edge ==""] <- NA
+    
+    THT <-df$THT..
+    THT[grepl("N/A", THT)] <- NA
+    THT[THT ==""] <- NA
+    
+    
+    
+    Thic <-df$Thick.CC..
+    Thic[grepl("N/A", Thic)] <- NA
+    Thic[Thic ==""] <- NA
+    
+    
+    AFA <-df$AFA..
+    AFA[grepl("N/A", AFA)] <- NA
+    AFA[AFA ==""] <- NA
+    
+    
+    BRK <-df$Braket..
+    BRK[grepl("N/A", BRK)] <- NA
+    BRK[BRK ==""] <- NA
+    
+    Phase <-df$Phase
+    Phase[grepl("N/A", Phase)] <- NA
+    Phase[Phase ==""] <- NA
+  
+    
+    data =  data.frame(  Mes_Fiscal = MesF, Bss = Bss , Tss = Tss,Edge=Edge, THT= THT,Thic= Thic,  AFA= AFA, BRK= BRK, Phase= Phase )
+     
+    genders  <<- as.list(sqldf("SELECT  Mes_Fiscal FROM data where Mes_Fiscal is not Null group by Mes_Fiscal "))
+
+    corridas_ano <<-  data.frame(sqldf("SELECT Mes_Fiscal, count(Bss) as Corridas_BSS,count(Tss) AS Corridas_TSS, count(Edge) AS Corridas_Edge,count(THT) AS Corridas_THT,count(Thic) AS Corridas_THICKCC, count(AFA) AS Corridas_AFA, count(BRK) AS Corridas_BRACKET   FROM data where Mes_Fiscal is not Null GROUP BY Mes_Fiscal"))
+    names(corridas_ano)  <-  corridas_ano
+
+    #for (k in length(names)) {
+    #location <- c(data1, data2)
+    # assign(names[k], location)
+    #}
+    
+  })
+  
+  
+  output$Lista <- renderUI({
+    inFile <- input$target_upload
+    if (is.null(inFile))
+      return(NULL)
+      selectInput("choice", label = h5("Mes Fiscal"), 
+                  choices = genders, 
+                  selected = 1)
+      
+    
+  })
+
+  output$value <- renderPrint({ input$choice })  
+  
+  
+  output$graph <- renderPlotly({
+    'Cantidad de Corridas'
+    inFile <- input$choice
+    if (is.null(inFile))
+      return(NULL)
+    dt <- corridas_ano
+    fig <- corridas_ano %>% plot_ly()
+    fig <- fig %>% add_trace(x = ~ dt$Mes_Fiscal, y = ~dt$Corridas_BSS, type = 'bar', name='BSS',
+                             text = ~dt$Corridas_BSS, textposition = 'auto',
+                             marker = list(color = 'rgb(246, 232, 54)',
+                                           line = list(color = 'rgb(23,23,23)', width = 0)))
+    
+    fig <- fig %>% add_trace(x = ~dt$Mes_Fiscal, y = ~dt$Corridas_TSS, type = 'bar', name='TSS',
+                             text = ~dt$Corridas_TSS, textposition = 'auto',
+                             marker = list(color = 'rgb(159, 218, 58)',
+                                           line = list(color = 'rgb(23,23,23)', width = 0)))
+    
+    
+    fig <- fig %>% add_trace(x = ~dt$Mes_Fiscal, y = ~dt$Corridas_Edge, type = 'bar', name='Edge Bonding',
+                             text = ~dt$Corridas_Edge, textposition = 'auto',
+                             marker = list(color = 'rgb(74, 193, 109)',
+                                           line = list(color = 'rgb(23,23,23)', width = 0)))
+    
+    
+    fig <- fig %>% add_trace(x = ~dt$Mes_Fiscal, y = ~dt$Corridas_THT, type = 'bar', name='THT',
+                             text = ~Corridas_THT, textposition = 'auto',
+                             marker = list(color = 'rgb(31, 161, 135)',
+                                           line = list(color = 'rgb(23,23,23)', width = 0)))
+    
+    fig <- fig %>% add_trace(x = ~dt$Mes_Fiscal, y = ~dt$Corridas_THICKCC, type = 'bar', name='Thick CC',
+                             text = ~dt$Corridas_THICKCC, textposition = 'auto',
+                             marker = list(color = 'rgb(58,200,225)',
+                                           line = list(color = 'rgb(23,23,23)', width = 0)))
+    
+    fig <- fig %>% add_trace(x = ~dt$Mes_Fiscal, y = ~dt$Corridas_AFA, type = 'bar', name='AFA',
+                             text = ~dt$Corridas_AFA, textposition = 'auto',
+                             marker = list(color = 'rgb(54, 92, 141)',
+                                           line = list(color = 'rgb(23,23,23)', width = 0)))
+    
+    fig <- fig %>% add_trace(x = ~dt$Mes_Fiscal, y = ~dt$Corridas_BRACKET, type = 'bar', name='Braket',
+                             text = ~dt$Corridas_BRACKET, textposition = 'auto',
+                             marker = list(color = 'rgb(70, 51, 126)',
+                                           line = list(color = 'rgb(23,23,23)', width = 0)))
+    
+    
+    fig <- fig %>% layout(title = "Cantidad de corridas",
+                          barmode = 'group',
+                          xaxis = list(title = "Meses"),
+                          yaxis = list(title = "Etapa"))
+    
+    fig
+  })
+  
+  
+}
+)
+
+# Run the application 
+shinyApp(ui = ui, server = server)
