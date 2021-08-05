@@ -1,0 +1,36 @@
+Function BuscarLinea(Myrange As Range) As String
+    Dim strPattern As String: strPattern = "([A|C])([S|E])([E|D])\s([0-9]{1,2})"
+    Dim regEx As New RegExp
+    Dim strInput As String
+    Dim Retornar As String
+    'Dim Myrange As Range
+
+    For A = 1 To 200
+
+    If Cells(A, 1).Value <> "" Then
+    
+    If strPattern <> "" Then
+        strInput = Myrange.Value
+        
+        With regEx
+            .Global = True
+            .MultiLine = True
+            .IgnoreCase = False
+            .Pattern = strPattern
+        End With
+        
+        If regEx.Test(strInput) Then
+ 
+            Set matches = regEx.Execute(strInput)
+            For Each Match In matches
+            simpleCellRegex = Match.Value
+            Next Match
+            BuscarLinea = simpleCellRegex
+            
+        Else
+           BuscarLinea = ""
+        End If
+            End If
+    End If
+    Next A
+End Function
