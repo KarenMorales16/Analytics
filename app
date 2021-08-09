@@ -40,8 +40,7 @@ ui <- dashboardPage(
                   'text/comma-separated-values',
                   '.csv')
       ),  
-      uiOutput('Lista')
-      ,uiOutput( 'Boxes')
+      uiOutput('Lista'),br(),br(), uiOutput( 'Boxes')
     )
   ),
   
@@ -192,8 +191,14 @@ server <- shinyServer(function(input, output,  session) {
     Outoftime$CantidadAFA[is.na(Outoftime$CantidadAFA)] <<-'N/A'
     Outoftime$CantidadBRK[is.na(Outoftime$CantidadBRK)] <<-'N/A'
   
+   
+    BssRequired <<-as.list(sqldf(paste("SELECT  count(Bss) FROM data wHERE  Mes_Fiscal is not Null AND Mes_Fiscal ='",input$choice,"' ", sep="")))
+    TssRequired <<-as.list(sqldf(paste("SELECT  count(Tss) FROM data wHERE  Mes_Fiscal is not Null AND Mes_Fiscal ='",input$choice,"' ", sep="")))
+    THTRequired <<-as.list(sqldf(paste("SELECT  count(THT) FROM data wHERE  Mes_Fiscal is not Null AND Mes_Fiscal ='",input$choice,"' ", sep="")))
+    AFARequired <<-as.list(sqldf(paste("SELECT  count(AFA) FROM data wHERE  Mes_Fiscal is not Null AND Mes_Fiscal ='",input$choice,"' ", sep="")))
+    BRKRequired <<-as.list(sqldf(paste("SELECT  count(BRK) FROM data wHERE  Mes_Fiscal is not Null AND Mes_Fiscal ='",input$choice,"' ", sep="")))
     
-    BssRequired <<-(sqldf(paste("SELECT  count(StatusBss)  FROM Datatime wHERE  Mes_Fiscal= ' ",input$choice," ' ", sep= "")))
+    
     
     genders  <<- as.list(sqldf("SELECT  Mes_Fiscal FROM data where Mes_Fiscal is not Null group by Mes_Fiscal "))
     genders  <<- do.call(c, list('All',genders))
@@ -221,30 +226,32 @@ server <- shinyServer(function(input, output,  session) {
   })
   
   output$Boxes <- renderUI({
-    df <- df_products_upload()
+     df_products_upload()
     inFile <- input$target_upload
     if (is.null(inFile))
       return(NULL)
     fluidRow(
-      box(
-        title = "BSS", width = 4, solidHeader = TRUE, status = "primary", BssRequired
+      valueBox(
+      h4(BssRequired), "BSS",  icon = icon("cog", lib = "glyphicon"),
+        color = "light-blue"
       ),
-      box(
-        title = "TSS", width = 4, solidHeader = TRUE, status = "primary",TssRequired
-       
+      valueBox(
+        h4(TssRequired), "TSS",  icon = icon("cog", lib = "glyphicon"),
+        color = "light-blue"
       ),
-      box(
-        title = "THT", width = 4, solidHeader = TRUE, status = "primary",THTRequired
-        
+      valueBox(
+        h4(THTRequired), "THT",  icon = icon("cog", lib = "glyphicon"),
+        color = "light-blue"
       ),
-      box(
-        title = "AFA", width = 4, solidHeader = TRUE, status = "primary",AFARequired
-        
+      valueBox(
+        h4(AFARequired), "AFA",  icon = icon("cog", lib = "glyphicon"),
+        color = "light-blue"
       ),
-      box(
-        title = "BRK", width = 4, solidHeader = TRUE, status = "primary",BRKRequired
-        
-      )
+      valueBox(
+        h4(BRKRequired), "BRK",  icon = icon("cog", lib = "glyphicon"),
+        color = "light-blue"
+      ),
+      
       
     )
       
