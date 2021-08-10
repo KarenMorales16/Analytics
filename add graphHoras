@@ -1,3 +1,4 @@
+
 library(ggplot2)
 library(plotly)
 library(dplyr)
@@ -12,6 +13,7 @@ library(shinymaterial)
 genders = list()
 corridas_ano = data.frame()
 Datatime= data.frame()
+MothDetail =data.frame()
 Datatimes= data.frame()
 Mes_f= data.frame()
 Outoftime = data.frame()
@@ -47,10 +49,11 @@ ui <- dashboardPage(
   dashboardBody( 
     fluidRow(
       tabBox(
-        title = "Desgloce de tiempos",
+        title = "breakdown of times ",
         # The id lets us use input$tabset1 on the server to find the current tab
         id = "tabset1", height = "100%", width = 800,
-        tabPanel("NPIP Builds alloted time ",  plotlyOutput("graph") ,DT::dataTableOutput("sample_table") ),
+        tabPanel("NPIP Builds alloted ",  plotlyOutput("graph") ,DT::dataTableOutput("sample_table") ),
+        tabPanel("Acumulated Hours ",plotlyOutput("graphHoras") ,DT::dataTableOutput("sample_table3")),
         tabPanel("Montly overview", plotlyOutput("graph1") , DT::dataTableOutput("sample_table1")),
         tabPanel("Out of time",plotlyOutput("graph2"),DT::dataTableOutput("sample_table2"))
         
@@ -68,13 +71,12 @@ ui <- dashboardPage(
 server <- shinyServer(function(input, output,  session) {
   #Imprimir tabla
   output$sample_table<- DT::renderDataTable({
-    
     df <- df_products_upload()
-    
     DT::datatable(df)
     
   })
   
+
   output$sample_table1<- DT::renderDataTable({
     df <- df_products_upload()
     DT::datatable(Mes_f)
@@ -86,6 +88,14 @@ server <- shinyServer(function(input, output,  session) {
     DT::datatable(Outoftime)
     
   })
+  
+  output$sample_table3<- DT::renderDataTable({
+    df <- df_products_upload()
+    DT::datatable(MothDetail)
+    
+  })
+  
+  
   
   #Seleccionar datos tabla
   df_products_upload <- reactive({
@@ -144,7 +154,16 @@ server <- shinyServer(function(input, output,  session) {
     
     data =  data.frame(  Mes_Fiscal = MesF, Bss = Bss , Tss = Tss,Edge=Edge, THT= THT,Thic= Thic,  AFA= AFA, BRK= BRK, Phase= Phase )
      
-    Datatime<- data.frame(StatusBss  = (df$BSS...Hrs..Required..time >= df$BSS..Hrs..Real.used.time),
+    Datatime<<- data.frame(
+                          Bss_Req = df$BSS...Hrs..Required..time , Bss_Real = df$BSS..Hrs..Real.used.time,
+                          Tss_Req =   df$TSS...Hrs..Required..time, Tss_Real= df$TSS..Hrs..Real.used.time,
+                          Edge_Req = df$Edge.Bonding...Hrs..Required..time, Edge_Real = df$Edge.Bonding...Hrs..Real.used.time,
+                          THT_Req =   df$THT...Hrs..Required..time , THT_Real = df$THT..Hrs..Real.used.time,
+                          Thic_Req =  df$Thick.CC...Hrs..Required..time ,Thic_Real = df$Thick.CC..Hrs..Real.used.time,
+                          AFA_Req =   df$AFA...Hrs..Required..time , AFA_Real = df$AFA..Hrs..Real.used.time,
+                          BRK_Req =   df$Braket...Hrs..Required..time , BRK_Real = df$Braket..Hrs..Real.used.time,
+                                               
+                          StatusBss  = (df$BSS...Hrs..Required..time >= df$BSS..Hrs..Real.used.time),
                           StatusTss=   (df$TSS...Hrs..Required..time >=  df$TSS..Hrs..Real.used.time),
                           StatusEdge = (df$Edge.Bonding...Hrs..Required..time >= df$Edge.Bonding...Hrs..Real.used.time),
                           StatusTHT=   (df$THT...Hrs..Required..time >= df$THT..Hrs..Real.used.time),
@@ -154,16 +173,17 @@ server <- shinyServer(function(input, output,  session) {
                           Mes_Fiscal = MesF, Phase=Phase)
     
     
-    Datatime$StatusBss[is.na(data$Bss)] <- 'NA'
-    Datatime$StatusTss[is.na(data$Tss)] <- 'NA'
-    Datatime$StatusEdge[is.na(data$Edge)] <- 'NA'
-    Datatime$StatusTHT[is.na(data$THT)] <- 'NA'
-    Datatime$StatusThic[is.na(data$Thic)] <- 'NA'
-    Datatime$StatusAFA[is.na(data$AFA)] <- 'NA'
-    Datatime$StatusBRK[is.na(data$BRK)] <- 'NA'
+    Datatime$StatusBss[is.na(data$Bss)]   <<- 'NA' ;  Datatime$Bss_Real[is.na(data$Bss)] <<-   0  ;  Datatime$Bss_Req[is.na(data$Bss)] <<-    0
+    Datatime$StatusTss[is.na(data$Tss)]   <<- 'NA' ;  Datatime$Tss_Real[is.na(data$Tss)] <<-   0  ;  Datatime$Bss_Req[is.na(data$Tss)] <<-    0
+    Datatime$StatusEdge[is.na(data$Edge)] <<- 'NA' ;  Datatime$Edge_Real[is.na(data$Edge)] <<- 0  ;  Datatime$Edge_Req[is.na(data$Edge)] <<-  0
+    Datatime$StatusTHT[is.na(data$THT)]   <<- 'NA' ;  Datatime$THT_Real[is.na(data$THT)] <<-   0  ;  Datatime$THT_Req[is.na(data$THT)] <<-    0
+    Datatime$StatusThic[is.na(data$Thic)] <<- 'NA' ;  Datatime$Thic_Real[is.na(data$Thic)] <<- 0  ;  Datatime$Thic_Req[is.na(data$Thic)] <<-  0
+    Datatime$StatusAFA[is.na(data$AFA)]   <<- 'NA' ;  Datatime$AFA_Real[is.na(data$AFA)] <<-   0  ;  Datatime$AFA_Req[is.na(data$AFA)] <<-    0
+    Datatime$StatusBRK[is.na(data$BRK)]   <<- 'NA' ;  Datatime$BRK_Real[is.na(data$BRK)] <<-   0  ;  Datatime$BRK_Req[is.na(data$BRK)] <<-    0
     
-    
-    
+  
+                                             
+                                                
     Datatimes <- data.frame(sqldf("SELECT Mes_Fiscal,StatusBss as Estatus, count(StatusBss) as CantidadBss FROM Datatime wHERE Mes_Fiscal is not null GROUP BY StatusBss,Mes_Fiscal order by Mes_Fiscal ASC"))
     Datatimes <-  Datatimes %>%data.frame(sqldf("SELECT  count(StatusTss) as CantidadTss FROM Datatime wHERE Mes_Fiscal is not null GROUP BY StatusTss,Mes_Fiscal order by Mes_Fiscal ASC"))
     Datatimes <-  Datatimes %>%data.frame(sqldf("SELECT  count(StatusTHT) as CantidadTHT FROM Datatime wHERE Mes_Fiscal is not null GROUP BY StatusTHT,Mes_Fiscal order by Mes_Fiscal ASC"))
@@ -204,11 +224,16 @@ server <- shinyServer(function(input, output,  session) {
     genders  <<- do.call(c, list('All',genders))
     
     if(input$choice =="All"){
-    corridas_ano <<- data.frame(sqldf("SELECT Mes_Fiscal, count(Bss) as Corridas_BSS,count(Tss) AS Corridas_TSS, count(Edge) AS Corridas_Edge,count(THT) AS Corridas_THT,count(Thic) AS Corridas_THICKCC, count(AFA) AS Corridas_AFA, count(BRK) AS Corridas_BRACKET   FROM data where Mes_Fiscal is not Null  GROUP BY Mes_Fiscal"))
+      MothDetail <<- data.frame(sqldf("SELECT Mes_Fiscal,SUM(Bss_Req) as Bss_Req ,SUM(Bss_Real) AS Bss_Real,SUM(Tss_Req) AS Tss_Req,SUM(Tss_Real) AS Tss_Real,SUM(Edge_Req) AS Edge_Req,SUM(Edge_Real) AS Edge_Real,SUM(THT_Req) AS THT_Req, SUM(THT_Real) AS THT_Real,SUM(Thic_Req) AS Thic_Req,SUM(Thic_Real) AS Thic_Real,SUM(AFA_Req) as AFA_Req, SUM(AFA_Real) as AFA_Real,SUM(BRK_Req) as BRK_Req, SUM(BRK_Real) as BRK_Real FROM Datatime "))
+      corridas_ano <<- data.frame(sqldf("SELECT Mes_Fiscal, count(Bss) as Corridas_BSS,count(Tss) AS Corridas_TSS, count(Edge) AS Corridas_Edge,count(THT) AS Corridas_THT,count(Thic) AS Corridas_THICKCC, count(AFA) AS Corridas_AFA, count(BRK) AS Corridas_BRACKET   FROM data where Mes_Fiscal is not Null  GROUP BY Mes_Fiscal"))
+   
     }
     else{
-    corridas_ano <<-  data.frame(sqldf(paste("SELECT Mes_Fiscal, count(Bss) as Corridas_BSS,count(Tss) AS Corridas_TSS, count(Edge) AS Corridas_Edge,count(THT) AS Corridas_THT,count(Thic) AS Corridas_THICKCC, count(AFA) AS Corridas_AFA, count(BRK) AS Corridas_BRACKET   FROM data where Mes_Fiscal is not Null And Mes_Fiscal ='",input$choice,"' GROUP BY Mes_Fiscal", sep="")))
-    }
+      MothDetail <<- data.frame(sqldf(paste("SELECT Mes_Fiscal, SUM(Bss_Req) as Bss_Req ,SUM(Bss_Real) AS Bss_Real,SUM(Tss_Req) AS Tss_Req,SUM(Tss_Real) AS Tss_Real,SUM(Edge_Req) AS Edge_Req,SUM(Edge_Real) AS Edge_Real,SUM(THT_Req) AS THT_Req, SUM(THT_Real) AS THT_Real,SUM(Thic_Req) AS Thic_Req,SUM(Thic_Real) AS Thic_Real,SUM(AFA_Req) as AFA_Req, SUM(AFA_Real) as AFA_Real,SUM(BRK_Req) as BRK_Req, SUM(BRK_Real) as BRK_Real FROM Datatime where Mes_Fiscal ='",input$choice,"' GROUP BY Mes_Fiscal", sep="")))
+   
+      corridas_ano <<-  data.frame(sqldf(paste("SELECT Mes_Fiscal, count(Bss) as Corridas_BSS,count(Tss) AS Corridas_TSS, count(Edge) AS Corridas_Edge,count(THT) AS Corridas_THT,count(Thic) AS Corridas_THICKCC, count(AFA) AS Corridas_AFA, count(BRK) AS Corridas_BRACKET   FROM data where Mes_Fiscal is not Null And Mes_Fiscal ='",input$choice,"'", sep="")))
+   
+     }
     
  
 
@@ -218,7 +243,7 @@ server <- shinyServer(function(input, output,  session) {
     inFile <- input$target_upload
     if (is.null(inFile))
       return(NULL)
-      selectInput("choice", label = h5("Mes Fiscal"), 
+      selectInput("choice", label = h5("Monthly Requirement"), 
                   choices = genders, 
                   selected = 1)
       
@@ -307,10 +332,10 @@ server <- shinyServer(function(input, output,  session) {
                                            line = list(color = 'rgb(23,23,23)', width = 0)))
     
     
-    fig <- fig %>% layout(title = "NPIP Builds alloted time attainment",
+    fig <- fig %>% layout(title = "NPIP Builds alloted time attainment fy2022",
                           barmode = 'group',
-                          xaxis = list(title = "Meses"),
-                          yaxis = list(title = "Etapa"))
+                          xaxis = list(title = "Month"),
+                          yaxis = list(title = "Quantity"))
     
     fig
   })
@@ -354,11 +379,44 @@ server <- shinyServer(function(input, output,  session) {
     GraphicsTime <- GraphicsTime %>% layout(title = "Montly overview",
                                             barmode = 'group',
                                             xaxis = list(title = inFile),
-                                            yaxis = list(title = "Etapa"))
+                                            yaxis = list(title = "Quantity"))
     
     GraphicsTime
     
   })
+  
+  
+  output$graphHoras <- renderPlotly({
+    'Cantidad de Corridas'
+    df_products_upload()
+    inFile <- input$choice
+    if (is.null(inFile))
+      return(NULL)
+    'Cantidad de Corridas'
+    GraphicsTime <-  plot_ly()
+    x=c ("Bss Req","Bss Real","Tss Req","Tss Real","Edge Req","Edge Real","THT Req","THT Real","Thic Req","Thic Real","AFA Req","AFA Real","BRK Req","BRK Real")
+    y=c (MothDetail$Bss_Req,MothDetail$Bss_Real,MothDetail$Tss_Req,MothDetail$Tss_Real,MothDetail$Edge_Req,MothDetail$Edge_Real,MothDetail$THT_Req,MothDetail$THT_Real,MothDetail$Thic_Req,MothDetail$Thic_Real,MothDetail$AFA_Req,MothDetail$AFA_Real,MothDetail$BRK_Req,MothDetail$BRK_Real)
+    z=c ("BSS","BSS","TSS","TSS","EDGE BONDING","EDGE BONDING","THT","THT","THICK CC","THICK CC","AFA","AFA","BRK","BRK")
+    i=c ('rgb(246, 232, 54)','rgb(159, 218, 58)',
+         'rgb(74, 193, 109)','rgb(31, 161, 135)',
+         'rgb(58,200,225)','rgb(54, 92, 141)',
+         'rgb(70, 51, 126)','rgb(246, 232, 54)',
+         'rgb(159, 218, 58)','rgb(74, 193, 109)',
+         'rgb(31, 161, 135)','rgb(58,200,225)',
+         'rgb(54, 92, 141)','rgb(246, 232, 54)')
+    
+    fig <- plot_ly(y=y, x=x,  type = "bar", name= z,
+                   text = y  ,textposition = 'auto',
+                   marker = list(color = i,
+                                 line = list(color = 'rgb(23,23,23)', width = 0)))
+    
+    fig <- fig %>% layout(yaxis=list(type='linear'))
+    
+    fig
+   
+    
+  })
+  
   
   output$graph2 <- renderPlotly({
     'Cantidad de Corridas'
@@ -396,10 +454,10 @@ server <- shinyServer(function(input, output,  session) {
     
     
     
-    GraphicsOutoftime <- GraphicsOutoftime %>% layout(title = "Phase de corridas Fuera de Tiempo",
+    GraphicsOutoftime <- GraphicsOutoftime %>% layout(title = "NPI Out of time (Phase)",
                                                       barmode = 'group',
                                                       xaxis = list(title = inFile ),
-                                                      yaxis = list(title = "Etapa"))
+                                                      yaxis = list(title = "Quantity"))
     
     GraphicsOutoftime
     
