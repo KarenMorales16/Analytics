@@ -1,0 +1,65 @@
+TSS
+=IFERROR((IFERROR(VLOOKUP(G500,[Prueba.xlsm]Sheet2!$E$3:$O$80,11,FALSE),0))+(H500*1)/
+(IF(BuscarLinea(BD500,"([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 5",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-5'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 1",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-1'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 2",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-2'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 3",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-3'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 4",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-4'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 6",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-6'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 7",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-7'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 8",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-8'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 9",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-9'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 8",IFNA((VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-8'!$C$9:$P$559,7,FALSE)),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 9",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-9'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 10",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-10'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 11",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-11'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 12",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-12'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 13",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-13'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 2",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-2'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 3",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-3'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 4",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-4'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BD500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 5",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-4'!$C$9:$P$559,7,FALSE),0))),"")
+
+
+BSS
+=IFERROR(IFERROR(VLOOKUP(G500,[Prueba.xlsm]Sheet2!$E$3:$U$80,17,FALSE),0)+(H500*1)/
+(IF(BuscarLinea(BG500,"([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 5",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-5'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 1",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-1'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 2",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-2'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 3",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-3'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 4",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-4'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 6",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-6'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 7",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-7'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 8",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-8'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 9",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(ASE)-9'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 8",IFNA((VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-8'!$C$9:$P$559,6,FALSE)),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 9",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-9'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 10",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-10'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 11",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-11'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 12",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-12'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 13",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-13'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 2",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-2'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 3",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-3'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 4",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-4'!$C$9:$P$559,6,FALSE),0))+
+IF(BuscarLinea(BG500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 5",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]SMT(HEE)-4'!$C$9:$P$559,6,FALSE),0))),"")
+
+
+THT
+=IFERROR(IFERROR(VLOOKUP(G500,[Prueba.xlsm]Sheet2!$E$3:$AD$80,26,FALSE),0)+(H500*1)/
+(IF(BuscarLinea(BM500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 1",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]THT(ASE)-1'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BM500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 2",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]THT(ASE)-2'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BM500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 3",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]THT(ASE)-3'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BM500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 4",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]THT(ASE)-4'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BM500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="ASE 5",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]THT(ASE)-5'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BM500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 6",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]THT(HEE)-6'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BM500, "([A|C])([S|E])([E|D])\s([0-9]{1,2})")="CED 5",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]THT(HEE)-5'!$C$9:$P$559,7,FALSE),0))),"")
+
+
+AFA
+=IFERROR(IFERROR(VLOOKUP(G500,[Prueba.xlsm]Sheet2!$E$3:$AK$80,33,FALSE),0)+(H500*1)/
+(IF(BuscarLinea(BS500, "([A|a])([F|f])([A|a])\s([0-9]{1,2})")="AFA 1",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]FLEX(ASE)-1'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BS500, "([A|a])([F|f])([A|a])\s([0-9]{1,2})")="AFA 2",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]FLEX(ASE)-2'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BS500, "([A|a])([F|f])([A|a])\s([0-9]{1,2})")="AFA 3",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]FLEX(ASE)-3'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BS500, "([A|a])([F|f])([A|a])\s([0-9]{1,2})")="AFA 4",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]FLEX(ASE)-4'!$C$9:$P$559,7,FALSE),0))+
+IF(BuscarLinea(BS500, "([A|a])([F|f])([A|a])\s([0-9]{1,2})")="AFA 5",IFNA(VLOOKUP(G500,'[All Electronics Rates.xlsx]FLEX(ASE)-5'!$C$9:$P$559,7,FALSE),0))),"")
+
