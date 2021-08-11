@@ -1,0 +1,1164 @@
+Division,WK,Mes Fiscal,BSS TIME Result,Product,PN,Qty,Phase,"BSS
+ ","BSS
+ (Hrs) Required  time","BSS
+(Hrs)
+Real used time","TSS
+ ","TSS
+ (Hrs) Required  time","TSS
+(Hrs)
+Real used time","Edge Bonding
+ ","Edge Bonding
+ (Hrs) Required  time","Edge Bonding
+ (Hrs) Real used time","THT
+ ","THT
+ (Hrs) Required  time","THT
+(Hrs)
+Real used time","Thick CC
+ ","Thick CC
+ (Hrs) Required  time","Thick CC
+(Hrs)
+Real used time","AFA
+ ","AFA
+ (Hrs) Required  time","AFA
+(Hrs)
+Real used time","Braket
+ ","Braket
+ (Hrs) Required  time","Braket
+(Hrs)
+Real used time",,,,,,ASD,03/29/2021,Apr,,"6410 Santa Maria, E2XX W/ESE (MTC EOL)",789442-0040,24,PPAP,"Complete
+03/29
+SMT ASE 6",1.16,2.16,"Complete
+03/31
+SMT ASE 5",1.21,3.6,N/A,0,0,"Complete
+04/01
+THT ASE 4",1.15,1.81,N/A,0,0,"Complete
+04/02
+AFA 3",1.18,4.41,N/A,0,0,,,,,,ASD,03/29/2021,Apr,,"Santa Maria 6408,E2XX UQS (MTC EOL)",772658-0050,24,PPAP,"Complete
+03/29
+SMT ASE 6",1.15,1.31,"Complete
+03/31
+SMT ASE 5",1.21,1.68,N/A,0,0,"Complete
+04/01
+THT ASE 4",1.15,0.76,N/A,0,0,"Complete
+04/02
+AFA 3",1.12,1.05,N/A,0,0,,,,,,ASD,03/29/2021,Apr,,Santa Monica T20A,832255-0040,320,Piloto,"Complete
+03/28
+SMT ASE 2",3.99,2.91,"Complete
+03/28
+SMT ASE 8",4.36,1.48,N/A,0,0,"Complete
+03/29
+THT ASE 5",4.16,10.53,N/A,0,0,"Complete
+03/29
+AFA 5",4.29,3.56,"Complete
+03/30
+Bracket Cell",5.2,4.45,,,,,,ASD,03/29/2021,Apr,,Santa Monica T43A,832255-4020,100,Piloto,"Complete
+03/31
+SMT ASE 2",1.94,2.91,"Complete
+04/01
+SMT ASE 8",2.05,2.68,N/A,0,0,"Complete
+04/02
+THT ASE 5",2.01,2.05,N/A,0,0,"Complete
+04/05
+AFA 5",2.03,2.26,"Complete
+04/06
+Bracket Cell",3,0.58,,,,,,ASD,03/29/2021,Apr,,Santa Monica T20A,832255-2020,100,Piloto,"Complete
+03/31
+SMT ASE 2",1.94,1.8,"Complete
+04/01
+SMT ASE 8",2.05,2.25,N/A,0,0,"Complete
+04/02
+THT ASE 5",2.01,2.05,N/A,0,0,"Complete
+04/05
+AFA 5",2.03,2.5,"Complete
+04/06
+Bracket Cell",3,1.65,,,,,,ASD,03/29/2021,Apr,,Spetter 6616S P42Q PRC PT1 Lot,837366-0020,120,Proto,"Complete
+03/30
+SMT ASE 5",2.38,3.4,"Complete
+03/31
+SMT ASE 5/Edge Bonding",2.008,2.63,,3.03,0,"Complete
+04/01
+THT ASE 2/-04/02 -Thick CC",2.31,2.3,,1.001,0,"Complete
+04/12
+AFA 5 - FCT Issue ",3.33,2.96,N/A,0,0,,,,,,ASD,04/05/2021,Apr,,Callisto 6516 Global B - Y2XX,859923-0010,20,Proto,"Complete
+04/08
+SMT ASE 4",2.15,8.7,"Complete
+04/08
+SMT ASE 7",2.13,6.35,N/A,0,0,"Complete
+04/13
+THT ASE 4",2.09,3.63,N/A,0,0,"Complete
+04/14
+AFA 5",2.33,1.91,N/A,0,0,,,,,,ASD,04/05/2021,Apr,,Spetter 6616S P42Q PT-1 Lot,826519-0070,120,Proto,"Complete
+01/19
+SMT ASE 5",2.51,1.2,"Complete
+04/05
+SMT ASE 5 Pending Edge Bonding - 04/06",2.69,2.43,,4.03,0,"Complete
+04/08
+THT ASE 2/Thick CC ",2.31,0.35,,1.31,0.2,"Complete
+04/08
+AFA 5 - Id Label DEV-000487",3.33,4.93,N/A,0,0,,,,,,ASD,04/05/2021,Apr,,Spetter 6616S P42R PT2 Lot,826513-0070,50,Piloto,"Complete
+01/19
+SMT ASE 5",1.18,1.26,"Complete
+03/30
+SMT ASE 5/Edge Bonding - ICT_01 & EB Pending -  SW Not Ready",1.64,1.3,,1.85,1.1,"Complete
+04/08
+THT ASE 2/Thick CC",3.31,3.46,,1.001,0.16,"Complete
+04/08
+AFA 5",2.9,3.18,N/A,0,0,,,,,,CED,04/05/2021,Apr,,REVENANT,832191-0090,390 PCBs (195 Panels),Beta,N/A,0,0,"Complete
+04/08
+SMT CED 12",9,2.33,N/A,0,0,N/A,0,0,"Complete
+04/08
+CC Cell",16.4,2.51,N/A,0,0,N/A,0,0,,,,,,CED,04/05/2021,Apr,,REVENANT,832191-0100,110 PCBs (55 Panels),Beta,N/A,0,0,"Complete
+04/08
+SMT CED 12",2.33,2.09,N/A,0,0,N/A,0,0,"Complete
+04/08
+CC Cell",4.14,0.29,N/A,0,0,N/A,0,0,,,,,,ASD,04/05/2021,Apr,,Callisto 6508 Global B - T1XX,791283-0080,310,Piloto / R&R,"Complete
+04/06
+SMT ASE 4",4.44,2.88,"Complete
+04/07
+SMT ASE 9",4.44,3.06,N/A,0,0,"Complete
+04/13
+THT ASE 2",4.33,8.38,N/A,0,0,"Complete
+04/13
+AFA 4",3.58,1.95,N/A,0,0,,,,,,ASD,04/05/2021,Apr,,Callisto 6510 Global B - T1XX,767596-0080,100,Piloto,"Complete
+04/05
+SMT ASE 4",2,1.48,"Complete
+04/06
+SMT ASE 7",2.12,2.4,N/A,0,0,"Complete
+04/12
+THT ASE 2",2.07,0.6,N/A,0,0,"Complete 04/13
+AFA 4",1.77,1.58,N/A,0,0,,,,,,ASD,04/05/2021,Apr,,Callisto 6512 Global B - T1XX,767586-0070,100,Piloto,"Complete
+04/05
+SMT ASE 4",2,1.66,"Complete
+04/06
+SMT ASE 7",2.12,1.15,N/A,0,0,"Complete
+04/12
+THT ASE 4",2.01,4.61,N/A,0,0,"Complete
+04/13
+AFA 4",1.083,1.53,N/A,0,0,,,,,,ASD,04/05/2021,Apr,,Callisto 6512 Global B - A2LL,789933-0130,310,R@R,"Complete
+04/05
+SMT ASE 4",3.5,2.01,"Complete
+04/06
+SMT ASE 7",2.12,3.61,N/A,0,0,"Complete
+04/08
+THT ASE 4",4.4,5.7,N/A,0,0,"Complete
+04/08
+AFA 4",3.5,3.36,"Complete
+04/09
+Bracket Cell",4.1,4.98,,,,,,CED,04/05/2021,Apr,,A20_SATIN II PCB ASSY,762806-0010,80 PCBs (20 Panels),Beta,"Complete
+04/06
+SMT CED 10",2.77,1.98,"Complete
+04/07
+SMT CED 12",2.55,4.65,N/A,0,0,"Complete
+04/08
+CC Cell",2.55,0,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,ASD,04/05/2021,Apr,, 6512B A2B  (McBeal for SGM),868167-0010,20,DP2,"Complete
+04/05
+SMT ASE 1",1.21,0,"Complete
+04/06
+SMT ASE 1",1.21,6.56,N/A,0,0,"Complete
+04/12
+THT ASE 4",3.66,1.11,N/A,0,0,"Complete
+04/13
+Off Line",1.66,0,N/A,0,0,,,,,,"4/17 EL Proceso de SMT TSS se retraso un dia, pueden por favor mover THT para el dia de hoy (THT ASE 4 el dia de hoy 04/07) y AFA para el dia de manana (FA va a ser offline, pero se va a necesitar una FCT  de AFA-5 durante 4 hrs para realizar la prueba funcional de las 20 pzas)."ASD,04/05/2021,Apr,,Spetter 6616S P42R PT2 Lot,826513-0070,550,Piloto,"Complete
+04/08
+SMT ASE 5",1.18,2.05,"Complete
+04/09
+SMT ASE 5/Edge Bonding",1.64,5.61,,1.85,7.46,"Complete
+04/09
+THT ASE 2/Thick CC",2.31,4.21,N/A,0,0,"Scheduled for
+04/10
+AFA 5",2.9,3.18,N/A,0,0,,,,,,CED,04/12/2021,Apr,,CASCADE CM BT/PWR,853853-01C0,248 PCB's (31 panels),C1,"Complete
+04/15
+SMT ASE 11 - 3 Panels C0mpleted",3.66,5.51,"Complete
+04/16
+SMT ASE 12/Flying Probe - 3 Panels C0mpleted",3.75,9.23,N/A,0,0,"Complete
+04/16
+CC Cell - 3 Panels C0mpleted",8.27,3.61,N/A,0,0,"
+
+N/A",0,0,N/A,0,0,,,,,,CED,04/12/2021,Apr,,CASCADE LEFT EARCUP,850848-01C0,198 PCB (33 panels),C1,"Complete
+04/19
+SMT CED 11",2.3,3.18,"Complete
+04/20
+SMT CED 12/Flying Probe/Programming",2.43,13.04,N/A,0,0,"Complete
+04/29
+Gel Cel/Singulation - 05/03 GelCell",6.21,,"Complete
+04/29
+Gel Cel/Singulation - 04/30 CC Cell",5.21,,"
+
+N/A",0,0,N/A,0,0,,,,,,CED,04/12/2021,Apr,,CASCADE RIGHT EARCUP,857571-01C0,198 PCB's (33 panels),C1,"Complete
+04/26
+SMT CED 11 Due to PCB Shortage",5.3,7.43,"Complete
+04/27
+SMT CED 12/Flying Probe-04/28 /Programming 04/29",5.43,10.68,N/A,0,0,"Complete
+05/07
+Spetter Gel Cel/Singulation 05/06",8.21,,"Scheduled for
+05/05
+Spetter Gel Cel/Singulation 05/06",8.21,,"
+
+N/A",0,0,N/A,0,0,,,,,,ASD,04/12/2021,Apr,,Pearl (6712Z Platform DP1a),867870-0010,25,DP1,"Complete
+04/16
+SMT ASE 1",3.28,9.36,"Currently Running
+04/19
+SMT ASE 1 / Pending Edge Bonding. Completed 21 due to BGA",3.32,3.64,N/A,0,0,"Complete
+04/21
+THT ASE 5",3.24,2.9,N/A,0,0,"
+
+N/A",0,0,N/A,0,0,,,,,,ASD,04/12/2021,Apr,,PUFFIN,869395-0010,140,DP1,"Complete
+04/15
+SMT ASE 1",4.61,6.26,"Complete
+04/21
+SMT ASE 1/RWK/Flying Probe ",4.8,5.83,N/A,0,0,"Complete
+05/10
+THT ASE 4 - Stick Lead COmplete - Programming - C0mplete, HM & CC Pending  (76 Pcs) ",7.54,9.43,N/A,0,0,"Complete
+05/14
+AFA Offline",0,0,N/A,0,0,,,,,,ASD,04/12/2021,Apr,,8800SS 9BUB,865999-0010,10,Proto,"
+
+N/A",0,0,"Complete
+04/12
+SMT ASE 2",1.05,6.26,N/A,0,0,"Complete
+04/13
+THT ASE 2",1.04,3.83,N/A,0,0,"Complete
+04/14
+AFA 1",1.46,2.8,N/A,0,0,,,,,,ASD,04/12/2021,Apr,,Melville Amps Assy,841902-0020,25,DP3,"Complete
+04/12
+SMT ASE 8",2.25,3.13,"Complete
+04/13
+SMT ASE 8/Edge Bonding",2.21,6.21,N/A,0,0,"Complete
+04/14
+THT ASE 3",6.25,4.66,N/A,0,0,"Complete
+04/15
+AFA 5",1.31,2.75,N/A,0,0,,,,,,ASD,04/12/2021,Apr,,Callisto 6510 Global B - A2SL-S (TWO),789939-1110,6,Proto,"
+
+Run Per Production Plan",0,0,"
+
+Run Per Production Plan",0,0,N/A,0,0,"
+
+Run Per Production Plan",0,0,N/A,0,0,"
+
+AFA 4",1.4,0.6,"Complete
+04/14
+Bracket Cell - DEV-000494",1.6,0,,,,,,ASD,04/12/2021,Apr,,Callisto 6512 Global B - A2LL-S (TWO),789933-1120,6,Proto,"
+
+Run Per Production Plan",0,0,"
+
+Run Per Production Plan",0,0,N/A,0,0,"
+
+Run Per Production Plan",0,0,N/A,0,0,"
+
+AFA 4",1.4,0,"Complete
+04/14
+Bracket Cell - DEV-000494",1.6,0,,,,,,ASD,04/19/2021,Apr,,Santa Ana 30AA,864278-0020,250,DV,"Complete
+04/22
+SMT ASE 1",4.33,5.01,"Complete
+04/23
+SMT ASE 8",4.63,2.2,N/A,0,0,"Complete
+04/27
+THT ASE 5 - 66 pcs - Shield",7.01,7.61,N/A,0,0,"Complete
+04/28
+AFA 5 - 66 Pcs - Shield",3.57,2.57,"Complete
+04/28
+Bracket Assy - 16 pcs Only",3.5,1.12,,,,,,ASD,04/19/2021,Apr,,Callisto 6510 Global B - Y2XX,859917-0030,100,Piloto,"Complete
+04/21
+SMT ASE 4",1.7,2.55,"Complete
+04/22
+SMT ASE 7",2.36,3.63,N/A,0,0,"Complete
+04/23
+THT ASE 4",2.09,2.6,N/A,0,0,"Complete
+04/26
+AFA 5",1.78,3.51,N/A,0,0,,,,,,ASD,04/19/2021,Apr,,Callisto 6516 Global B - Y2XX,859921-0030,100,Piloto,"Complete
+04/21
+SMT ASE 4",2.33,2.65,"Complete
+04/22
+SMT ASE 7",2.33,2.63,N/A,0,0,"Complete
+04/23
+THT ASE 4",2.09,2.2,N/A,0,0,"Complete
+04/26
+AFA 5",2.54,3.01,N/A,0,0,,,,,,ASD,04/19/2021,Apr,,Panda FAW,841580-0020,"75
+44",PV Build,"Complete
+04/19
+SMT ASE 5",1.63,7.06,"Complete
+04/22
+SMT ASE 5/Edge Bonding 04/26 Pending 31 PCB due to IC Shortage",2.68,7.98,N/A,0,0,"Complete
+04/27
+THT ASE 2/Thick CC - 04/28",6.66,7.58,N/A,0,0,"Complete
+04/28
+AFA 5",5.85,5.8,N/A,0,0,,,,,,ASD,04/19/2021,Apr,,Santa Fe 12Ch DL3,827028-0050,100,PPAP,"Complete
+04/19
+SMT ASE 6",1.91,3.11,"Complete
+04/20
+SMT ASE 5",2.16,1.21,N/A,0,0,"Complete
+04/21
+THT ASE 5",1.78,1.31,N/A,0,0,"Complete
+04/27
+AFA 5",1.93,4.19,"Complete
+04/27
+Bracket Cell",3.01,0.4,,,,,,ASD,04/19/2021,Apr,,Santa Fe 12Ch DN8Sport,827065-0060,100,PPAP,"Complete
+04/19
+SMT ASE 6",1.91,1.96,"Complete
+04/20
+SMT ASE 5",2.01,3.58,N/A,0,0,"Complete
+04/21
+THT ASE 5",1.78,2.1,N/A,0,0,"Complete
+04/22
+AFA 5",1.93,1.55,"Complete
+04/23
+Bracket Cell",2.01,5.01,,,,,,ASD,04/19/2021,Apr,,Spetter 6616S P42Q,826519-1010,24,Reflash/Proto,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,"Complete
+04/19
+AFA 5 - DEV-000505",2.26,5.23,N/A,0,0,,,,,,ASD,04/19/2021,Apr,,Santa Monica,832255-1020,9,Re-Label,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,"Complete
+04/22
+AFA 5 - DEV-000505",2.1,2.46,"Complete
+04/22
+Bracket Cell",2.01,0,,,,,,ASD,04/19/2021,Apr,,Santa Monica,832255-3020,8,Reflash,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,"Complete
+04/22
+AFA 5 - DEV-000515",1.93,1.65,"Complete
+04/23
+Bracket Cell",2.01,2.03,,,,,,CED,04/26/2021,May,,CASCADE CM AUDIO,853854-00C0,248 PCB's (31 panels),C1,"Complete
+04/29
+SMT CED 11",4.65,10.1,"Complete
+04/30
+SMT CED 12/FLying Probe ",5,17.31,N/A,0,0,"Complete
+05/14
+Gel Cel (Terminals - Mat Shortage) - Complete 05/28",15.87,11.08,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,ASD,04/26/2021,May,,B233 (McBeal Slave no Bridged CHs),870317-0010,75,DP0,"Complete
+04/26
+SMT ASE 1",2.62,10.98,"Complete
+04/27
+SMT ASE 1 - RwK",2.76,10.96,N/A,0,0,"Complete
+05/05
+THT ASE 4",5.51,5.72,N/A,0,0,"Complete
+05/06
+Off Line",4.5,0,N/A,0,0,,,,,,ASD,04/26/2021,May,,Callisto 6508 Global B - T1XX,860298-0020,30,Proto,"Complete
+04/26
+SMT ASE 4",1.21,2.18,"Complete
+04/27
+SMT ASE 9",1.23,3.85,N/A,0,0,"Complete
+04/28
+THT ASE 2",1.33,2.15,N/A,0,0,"Complete
+04/30
+AFA 4",1.25,4.1,N/A,0,0,,,,,,ASD,04/26/2021,May,,Callisto 6510 Global B - T1XX,860325-0020,15,Proto,"Complete
+04/26
+SMT ASE 4",1.1,1.58,"Complete
+04/27
+SMT ASE 7",1.17,2.88,N/A,0,0,"Complete
+04/28
+THT ASE 2",1.16,3.68,N/A,0,0,"Complete
+04/30
+AFA 4",1.15,2.4,N/A,0,0,,,,,,ASD,04/26/2021,May,,Melville,844255-0050,1,Engineering Test,N/A,0,0,"Complete
+04/26
+SMT ASE 8",2.05,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,CED,05/03/2021,May,,Cascade Control Module Final Assembly,840029-01C0,200,C1,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,"
+Cascade Cell",3.001,0,N/A,0,0,,,,,,ASD,05/03/2021,May,,Omega J34A w/ EHE SantaCruz,790193-4510,100,PPAP,"Complete
+04/29
+SMT ASE 6",1.93,0.2,"Complete
+04/30
+SMT ASE 5",2.05,2.55,N/A,0,0,N/A,0,0,N/A,0,0,"Complete
+05/05
+AFA 5 - Pending Packing Material",2.04,1.43,N/A,0,0,,,,,,ASD,05/03/2021,May,,Omega J34A SantaCruz,790193-4010,100,PPAP,"Complete
+04/29
+SMT ASE 6",1.93,2.06,"Complete
+04/30
+SMT ASE 5",2.05,2.55,N/A,0,0,"Complete
+05/04
+THT ASE 2",1.85,1.26,N/A,0,0,"Complete
+05/05
+AFA 5 - Pending Packing Material",2.04,1.18,N/A,0,0,,,,,,ASD,05/03/2021,May,,Santa Monica T90A,827434-0020,150,Proto,"Complete
+05/05
+SMT ASE 2",2.4,3.51,"Complete
+05/06
+SMT ASE 8",2.57,3.66,N/A,0,0,"Complete
+05/11
+THT ASE 5",2.48,2.97,N/A,0,0,"Complete
+05/12
+AFA 5",2.54,7.03,"Complete
+05/13
+Bracket Cell",3.5,1.43,,,,,,CED,05/03/2021,May,,CASCADE CM BT/PWR,853853-01C0,224 PCB's (28 panels),C1,"Complete
+05/05
+SMT CED 11",2.6,11.8,"Complete
+05/06
+SMT CED 12",4.68,7.28,N/A,0,0,"Complete
+05/13
+CC Cell",11.7,6.5,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,ASD,05/03/2021,May,,Santa Fe (KA4_841611-0050) ,841611-0050,300,PPAP,"Complete
+04/29
+SMT ASE 6",3.72,4.26,"Complete
+04/30
+SMT ASE 5",3.8,8.25,N/A,0,0,"Complete
+05/04
+THT ASE 2",4.35,6.23,N/A,0,0,"Complete
+05/05
+AFA 3",1.001,1.15,"Complete
+05/06
+Bracket Cell",1.001,0.77,,,,,,ASD,05/03/2021,May,,"Santa Monica T43A, LHD",832255-3020,100,Piloto,"Complete
+05/05
+SMT ASE 2",1.94,0.95,"Complete
+05/06
+SMT ASE 8",2.05,0.98,N/A,0,0,"Complete
+05/07
+THT ASE 5",1.99,3.03,N/A,0,0,"Complete
+05/10
+AFA 5",2.03,2.65,"Complete
+05/11
+Bracket Cell",2,0.5,,,,,,ASD,05/03/2021,May,,"Santa Monica T20A, CLO, LH",832255-1020,50,Piloto,"Complete
+05/05
+SMT ASE 2",1.48,1.7,"Complete
+05/06
+SMT ASE 8",1.53,1.53,N/A,0,0,"Complete
+05/07
+THT ASE 5",1.49,2.25,N/A,0,0,"Complete
+05/10
+AFA 5",1.51,2.71,"Complete
+05/12
+Bracket Cell",1.5,0.39,,,,,,ASD,05/03/2021,May,,"Santa Monica, 3K0A, LHD",862381-0020,100,Piloto,"Complete
+05/05
+SMT ASE 2",1.94,0.51,"Complete
+05/06
+SMT ASE 8",2.05,1.71,N/A,0,0,"Complete
+05/12
+THT ASE 5 (TS in Concept Locked Status)",1.99,0.98,N/A,0,0,"Complete
+05/12
+AFA 5",2.03,4.65,"Complete
+05/13
+Bracket Cell",2,0.87,,,,,,ASD,05/10/2021,May,,Callisto 6510 Global B - BT1XX,862471-0020,40,Proto,"Complete
+05/10
+SMT ASE 4",1.28,3.4,"Complete
+05/11
+SMT ASE 7",1.45,3.2,N/A,0,0,"Complete
+05/12
+THT ASE 2",1.37,4.53,N/A,0,0,"Complete
+05/13
+AFA 4",1.31,2.4,N/A,0,0,,,,,,CED,05/10/2021,May,,Cascade Headband Final Assembly,840028-0010,200,C1,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,Cascade Cell,0,0,N/A,0,0,,,,,,CED,05/10/2021,May,,Cascade Ear Cup Left & Right Final Assembly,840033-0010 (L) & -0020 (R),200,C1,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,Cascade Cell,0,0,N/A,0,0,,,,,,ASD,05/10/2021,May,,"TengShe
+Geely 6412DR Amp",832547-0050,301,Proto,"Complete
+05/10
+SMT ASE 6",3.68,7.52,"Complete
+05/11
+SMT ASE 5",3.81,6.2,N/A,0,0,"Complete
+05/12
+THT ASE 5",3.73,2.65,N/A,0,0,"Complete
+05/13
+AFA 5",4.27,2.82,N/A,0,0,,,,,,ASD,05/10/2021,May,,Melville Amps Assy,868780-0030,100,DP4,"Complete
+05/11
+SMT ASE 8",2.14,9.53,"Complete
+05/13
+SMT ASE 8/RWK,Programming - Pending Edge Bonding",1.85,7.22,"Edge Bonding
+ 5/14",3,1,"Complete
+05/20
+THT ASE 3",3.03,2,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,ASD,05/10/2021,May,,Spetter 6616S P42R,826513-1020,24,Proto,"Complete
+05/11
+SMT ASE 5",1.27,1.67,"Complete
+05/12
+SMT ASE 5/Programming/Edge Bonding ",1.2,1.5,"Edge Bonding
+ 5/13",1.4,1,"Complete
+05/17
+THT ASE 2/Thick CC (DEV-000531)",1.26,4.47,,1.001,0,"Complete
+05/18
+AFA 5  (DEV-000531)",2.26,3.55,N/A,0,0,,,,,,ASD,05/10/2021,May,,Spetter 6616S P42Q,826519-0080,24,Proto,"Complete
+05/11
+SMT ASE 5",1.27,1.82,"Complete
+05/12
+SMT ASE 5/Programming/Edge Bonding ",1.2,8.43,"Edge Bonding
+ 5/14",1.4,1,"Complete
+05/14
+THT ASE 2/Thick CC",1.42,3.27,,1.01,0,"Complete
+05/16
+AFA 5",1.26,1.26,N/A,0,0,,,,,,ASD,05/10/2021,May,,Gorch Fock,814741-0050,125,Piloto,"Complete
+05/11
+SMT ASE 2",2.22,1.05,"Complete
+05/13
+SMT ASE 7 (DEV-000542)",2.78,2.01,N/A,0,0,"Complete
+05/14
+THT ASE 3",2.36,1.1,N/A,0,0,"Complete
+05/17
+AFA 5",2.46,1.57,N/A,0,0,,,,,,ASD,05/17/2021,May,,Panda FAW Spetter DP2,841580-0020,75,DP2,"Complete
+02/09
+SMT ASE 1",1.55,11.46,"Complete
+02/10
+SMT ASE 1/           02/11 Edge Bonding/Programming",6.45,7.56,N/A,0,0,"Complete
+05/18
+THT ASE 4 / Thick CC",7.22,7.68,N/A,0,0,"Complete
+05/19
+AFA 5",18,7.65,N/A,0,0,,,,,,ASD,05/17/2021,May,,El Paso,866315-0020,20,DP1,"Complete
+05/17
+SMT ASE 1",2.03,2.03,"Complete
+05/18
+SMT ASE 1/Flying Probe",2.15,4.8,N/A,0,0,"Complete
+05/20
+THT ASE 5/Programming",2,2,N/A,0,0,"Complete
+05/20
+Offline",4,2,"Complete
+05/20
+OffLine",0,0,,,,,,ASD,05/17/2021,May,,Santa Fe 6412Z DL3GT,827038-0070,100,PPAP,"Complete
+05/17
+SMT ASE 6",2.34,1.48,"Complete
+05/18
+SMT ASE 5",2.25,0.93,"05/19
+Flying probe 1",14,10,"Complete
+05/19
+THT ASE 2",4,3.12,N/A,0,0,"Complete
+05/20
+AFA 3",4,4.17,"Complete
+05/20
+Bracket Cell",0,0,,,,,,ASD,05/17/2021,May,,1405 Remote Amp,850508-0030,30,DP0,"Complete
+05/18
+SMT ASE 1",1.27,4.06,"Complete
+05/19
+SMT ASE 8",1.28,1.2,N/A,0,0,"Complete
+05/20
+THT ASE 2",4,2.4,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,ASD,05/17/2021,May,,Spetter 6616S P42Q,826519-0080,310,Piloto,"Complete
+05/17
+SMT ASE 5",1.21,5.12,"Complete
+05/18
+SMT ASE 5/Prog/Edge Bonding",1.21,10.58,Complete 05/19,1.32,1.1,"Complete
+05/20
+THT ASE 2/Thick CC",1.78,0.18,Complete 05/20,1.32,1.1,"Complete
+05/21
+AFA 5",1.92,2.21,N/A,0,0,,,,,,ASD,05/17/2021,May,,Panda FAW,841580-0020,33,PV Build,"Complete
+04/19
+SMT ASE 5",1.27,7.07,"Complete
+05/13
+SMT ASE 5/Programming/Edge Bonding",6.21,5.55,N/A,0,0,"Complete
+05/17
+THT ASE 4/ Pending Thick CC ",5.32,9.47,N/A,0,0,"Complete
+05/19
+AFA 5",8,7.65,N/A,0,0,,,,,,ASD,05/17/2021,May,,Santa Fe 12Ch DL3GT,827038-0070,97,Reflash,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,"Complete
+05/20
+AFA 3 (DEV-000553)",2.001,6.31,"Complete
+05/21
+Bracket Cell",2.001,4.71,,,,,,ASD,05/24/2021,Jun,1,Melville,868778-0030,"40
+15",DP4,"Complete
+05/24
+SMT ASE 8",1.46,6.48,"Complete
+05/25
+SMT ASE 8/Programming/Edge Bonding",1.35,4.28,"Complete
+05/6
+Edge Bonding",2.33,8.94,"Currently Running
+06/01
+THT ASE 3 - Stick Lead & Hot Melt C0mpleted - Prog & CC - TBD",5.49,,N/A,0,0,AFA 5 - TBD - On Hold until SW Release,3.35,,N/A,0,0,,,,,,ASD,05/24/2021,Jun,1,Omega J30A SantaCruz,859240-0010,64,Proto,"Complete
+05/25
+SMT ASE 6",1.6,1.68,"Complete
+05/26
+SMT ASE 5",2,2.3,N/A,0,0,"Complete
+05/27
+THT ASE 5",1.53,3.15,N/A,0,0,"Complete
+05/28
+AFA 5",1.66,1.58,N/A,0,0,,,,,,ASD,05/24/2021,Jun,1,Santa Cruz ,790193-1070,100,Piloto,"Complete
+05/25
+SMT ASE 6",1.95,2.35,"Complete
+05/26
+SMT ASE 5",2.05,2.35,N/A,0,0,"Complete
+05/27
+THT ASE 5",1.84,1.4,N/A,0,0,"Complete
+05/28
+AFA 5",2.14,1.27,N/A,0,0,,,,,,ASD,05/24/2021,Jun,1,"6512G2,E2LB-2 (McBeal app Slave only)",868162-0010,30,DP0,"Complete
+05/25
+SMT ASE 1",2.33,4,"Complete
+05/26
+SMT ASE 1",2.33,4.7,N/A,0,0,"Complete
+06/03
+THT ASE 4",3.4,1.47,N/A,0,0,"Complete
+06/07
+Off line - Packing Pending",1.46,1.4,N/A,0,0,,,,,,ASD,05/24/2021,Jun,1,Melville Amps Assy,868780-0030,25,DP4,"Complete
+05/24
+SMT ASE 8",1.29,2.73,"Complete
+05/25
+SMT ASE 8/Progframming 5/26/",1.23,6.87,Complete Edge Bonding 5/26,2.01,0,"Complete
+06/01
+THT ASE 3 - Stick Lead & Hot Melt (No CC)",2.51,2.2,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,ASD,05/24/2021,Jun,1,El Paso,866315-0020,70,DP1,"Complete
+05/17
+SMT ASE 1",1.64,6.06,"Complete
+05/24
+SMT ASE 1/Flying Probe",2.65,11.1,N/A,0,0,"Complete
+05/25
+THT ASE 5 - Stick Lea 05/25 - CC 05/31",4.34,2.21,"Complete
+CC 05/31",7.2,2.06,"Complete
+06/01
+Offline",2.07,2.28,"Complete
+06/01
+Offline",1.7,0,,,,,,CED,05/31/2021,Jun,N/A,Cascade Ear Cup Left & Right Final Assembly,840033-0010 (L) & -0020 (R),200,C1,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,Cascade Cell,0,0,N/A,0,0,,,,,,ASD,05/31/2021,Jun,1,GF 6416,867896-0030,105,DP2,"Complete
+06/01
+SMT ASE 2",2.02,2.38,"Complete
+06/01
+SMT ASE 8 - 25 Pcs RWK",2.93,5.05,N/A,0,0,"Complete
+06/07
+THT ASE 3",2.31,3.21,N/A,0,0,"Complete
+06/08
+AFA 5",2.15,5.9,N/A,0,0,,,,,,ASD,05/31/2021,Jun,1,Callisto 6508 Global B - T1XX (Service),791283-9080,30,Piloto,"Complete
+05/31
+SMT ASE 4",1.21,1.77,"Complete
+06/01
+SMT ASE 9",1.23,2.22,N/A,0,0,"Complete
+06/02
+THT ASE 2",1.32,2.21,N/A,0,0,"Complete
+06/03
+AFA 4",1.25,3.23,N/A,0,0,,,,,,ASD,05/31/2021,Jun,1,Callisto 6510 Global B - T1XX (Service),767596-9080,30,Piloto,"Complete
+06/02
+SMT ASE 4",1.21,1.9,"Complete
+06/03
+SMT ASE 7",1.34,2.43,N/A,0,0,"Complete
+06/04
+THT ASE 2",1.32,1.82,N/A,0,0,"Complete
+06/07
+AFA 4",1.23,2.12,N/A,0,0,,,,,,ASD,05/31/2021,Jun,1,Callisto 6512 Global B - T1XX (Service),767586-9070,35,Piloto,"Complete
+06/02
+SMT ASE 4",1.28,1.65,"Complete
+06/03
+SMT ASE 7",1.39,2.2,N/A,0,0,"Complete
+06/03
+THT ASE 4",1.38,2.22,N/A,0,0,"Complete
+06/07
+AFA 2",1.27,1.57,N/A,0,0,,,,,,ASD,05/31/2021,Jun,1,Callisto 6508 Global B - BV1HX,870670-0020,30,Proto,"Complete
+05/31
+SMT ASE 4",1.22,4.06,"Complete
+06/01
+SMT ASE 9",1.24,1.1,N/A,0,0,"Complete
+06/02
+THT ASE 2",1.33,2.22,N/A,0,0,"Complete
+06/03
+AFA 4",1.25,2.67,N/A,0,0,,,,,,ASD,05/31/2021,Jun,1,Callisto 6516B,859921-0030,30,Proto,"Complete
+06/02
+SMT ASE 4 - BSS from 859921-0020",1.34,2.67,"Complete
+06/03
+SMT ASE 7",1.34,1.87,N/A,0,0,"Complete
+06/03
+THT ASE 4",1.32,2.85,N/A,0,0,"Complete
+06/07
+AFA 5",1.46,1.88,N/A,0,0,,,,,,ASD,05/31/2021,Jun,N/A,Spetter 6616S P42Q,837366-0020,15,Reflash,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,"Complete
+06/04
+AFA 5 (DEV-000586)",1.16,1.22,N/A,0,0,,,,,,CED,06/07/2021,Jun,N/A,Cascade Headband Final Assembly,840028-0010,200,C1,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,N/A,0,0,Cascade Cell,1.2,,N/A,0,0,,,,,,ASD,06/07/2021,Jun,1,Callisto 6510 Global B - A2SL,789939-0130,100,Piloto,"Complete
+06/10
+SMT ASE 4",1.71,1.85,"Complete
+06/11
+SMT ASE 7",2.13,2.1,N/A,0,0,"Complete
+06/16
+THT ASE 2",2.09,4.18,N/A,0,0,"Complete
+06/17
+AFA 4",1.78,2,"Complete
+06/18
+Bracket Cell",1.01,1.05,,,,,,ASD,06/07/2021,Jun,0,Callisto 6512 Global B - A2LL,789933-0140,100,Piloto,"Complete
+06/10
+SMT ASE 4",1.8,1.8,"Complete
+06/11
+SMT ASE 7",2.12,2.1,N/A,0,0,"Complete
+06/16
+THT ASE 4",2.09,0.65,N/A,0,0,"Complete
+06/17
+AFA 4",1.77,2,"Complete
+06/18
+Bracket Cell",1.01,1.05,,,,,,ASD,06/07/2021,Jun,N/A,Nina,871231-0010,20,Piloto,N/A,0,0,"Complete
+06/09
+SMT ASE 3",1.25,3.88,N/A,0,0,"Complete
+06/10
+THT ASE 3",1.21,1.45,N/A,0,0,"Complete
+06/11
+AFA 1 (DEV-000576)",1.16,1.82,N/A,0,1.05,,,,,,ASD,06/07/2021,Jun,0,Santa Monica T60A,870490-0010,30,Proto,"Complete
+06/07
+SMT ASE 2",1.28,1.1,"Complete
+06/08
+SMT ASE 8",1.35,1.6,N/A,0,0,"Complete
+06/09
+THT ASE 5",1.29,1.35,N/A,0,0,"Complete
+06/10
+AFA 5",1.3,2.83,"Complete
+06/10
+Bracket Cell",1.3,1.05,,,,,,ASD,06/07/2021,Jun,0,Santa Monica T60A,870491-0010,30,Proto,"Complete
+06/07
+SMT ASE 2",1.28,1.05,"Complete
+06/08
+SMT ASE 8",1.35,1.43,N/A,0,0,"Complete
+06/09
+THT ASE 5",1.29,1.35,,0,0,"Complete
+06/10
+AFA 5",1.3,2.45,"Complete
+06/10
+Bracket Cell",1.3,1.05,,,,,,ASD,06/07/2021,Jun,1,Santa Monica T60A,870677-0010,30,Proto,"Complete
+06/07
+SMT ASE 2",1.28,1.96,"Complete
+06/08
+SMT ASE 8",1.35,3.05,N/A,0,0,"Complete
+06/09
+THT ASE 5",1.29,1.35,N/A,0,0,"Complete
+06/10
+AFA 5",1.3,0.5,"Complete
+06/10
+Bracket Cell",1.3,1.05,,,,,,ASD,06/07/2021,Jun,1,Omega J71R Type2,353728-7050,108,Validacion,"Complete
+06/08
+SMT ASE 2",1.55,1.58,"Complete
+06/09
+SMT ASE 8 (DEV-000577)",1.65,4.26,N/A,0,0,"Complete
+06/10
+THT ASE 4",1.58,2.45,N/A,0,0,"Complete
+06/11
+AFA 3",1.93,0.5,N/A,0,0,,,,,,CED,06/07/2021,Jun,1,CASCADE LEFT EARCUP,850848-01C0,30 PCB (5 panels),C1,"Complete
+06/07
+SMT CED 11",1.2,8.6,"Complete
+06/11
+SMT CED 12/Flying Probe-04/28 /Programming",1.22,4.26,N/A,0,0,"Complete
+06/14
+Spetter Gel Cel/Singulation",1.22,1.15,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,CED,06/07/2021,Jun,1,CASCADE RIGHT EARCUP,857571-01C0,30 PCB (5 panels),C1,"Complete
+06/07
+SMT CED 11",1.2,0.4,"Complete
+06/08
+SMT CED 12/Flying Probe-04/28 /Programming ",1.22,1.41,N/A,0,0,"Complete
+06/14
+Spetter Gel Cel/Singulation",1.22,1.12,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,ASD,06/14/2021,Jun,0, 6512B A2B  (McBeal for SAIC ES33),869866-0010,75,DP1,"Complete
+06/16
+SMT ASE 1",6.82,4.26,"Complete
+06/23
+SMT ASE 1/FP/Prog - Date: TBD - Mat SHort - IC357347-0030 ETA 06/21",6.75,7.23,N/A,0,0,"Complete
+06/28
+THT ASE 4",3.02,3.3,N/A,0,0,"Complete
+06/29
+AFA 5 (Off line Assy/In LIne FCT) ",13.65,6,N/A,0,0,,,,,,ASD,06/14/2021,Jun,1,Tengshe GEELY 6412DR AMP,832547-0060,301,Proto,"Complete
+06/14
+SMT ASE 6",3.68,4.8,"Complete
+06/24
+SMT ASE 5 - Mat SHort - IC357347-0030 ETA 06/21",3.81,1.95,N/A,0,0,"Complete
+06/25
+THT ASE 5",3.73,2.5,N/A,0,0,"Complete
+06/28
+AFA 5",4.5,2.24,N/A,0,0,,,,,,ASD,06/14/2021,Jun,1,Spetter 6616S P42R,826513-0080,24,Proto,"Complete
+06/14
+SMT ASE 5",1.28,2.05,"Complete
+06/15
+SMT ASE 5/Programming/Edge Bonding ",1.3,1.35,Complete 06/16,1.3,0,"Complete
+06/17
+THT ASE 2/Thick CC",1.26,1.33,Complete 06/16,1.3,0,"Complete
+06/18
+AFA 5",1.26,2.08,N/A,0,0,,,,,,ASD,06/14/2021,Jun,1,Callisto 6510 Global B - Y2XX (Service),859917-9030,35,Piloto,"Complete
+06/15
+SMT ASE 4",1.25,2.55,"Complete
+06/16
+SMT ASE 7",1.4,2.15,N/A,0,0,"Complete
+06/16
+THT ASE 2",1.38,2.15,N/A,0,0,"Complete
+06/18
+AFA 4",1.28,2.01,N/A,0,0,,,,,,ASD,06/14/2021,Jun,1,Callisto 6516 Global B - Y2XX (Service),859921-9030,30,Piloto,"Complete
+06/16
+SMT ASE 4",1.21,2.55,"Complete
+06/24
+SMT ASE 7 - Mat SHort - IC357347-0030 ETA 06/21",1.35,3.43,N/A,0,0,"Complete
+06/25
+THT ASE 4",1.33,2.3,N/A,0,0,"Complete
+06/28
+AFA 5",1.46,2.68,N/A,0,0,,,,,,ASD,06/14/2021,Jun,0,Dallas (new Callisto GA 6510),871452-0010,80,DP1,"Complete
+06/16
+SMT ASE 1",6.8,4.26,"Complete
+06/17
+SMT ASE 1/FP",6.8,4.57,N/A,0,0,"Complete
+06/21
+THT ASE 4",5.33,6.05,N/A,0,0,"Complete
+06/22
+AFA 5 (Off line Assy/In Line FCT)",13.65,0,N/A,0,0,,,,,,ASD,06/14/2021,Jun,0,Spetter 6616S P42Q,837366-0020,24,Proto,"Complete
+06/14
+SMT ASE 5",1.28,0.85,"Complete
+06/15
+SMT ASE 5/Programming/Edge Bonding ",1.2,4.57,Complete 06/16,1.3,0,"Complete
+06/17
+THT ASE 2/Thick CC",1.26,2.95,Complete 06/17,1.3,0,"Complete
+06/18
+AFA 5",1.26,2.8,N/A,0,0,,,,,,ASD,06/21/2021,Jun,1,Pearl (6712Z Platform DP2),867870-0020,30,DP2,"Complete
+06/23
+SMT ASE 1",1.34,3.58,"Complete
+06/24
+SMT ASE 1/Flying Probe/Edge Bonding",1.38,6.22,N/A,0,0,"Complete
+06/28
+THT ASE 5",1.37,3.68,N/A,0,0,N/A,0,0,N/A,0,0,,,,,,ASD,06/21/2021,Jun,0,Callisto 6510 Global B - A2SL (Service),789939-9130,15,Piloto,"Complete
+06/21
+SMT ASE 4",1.7,0.71,"Complete
+06/23
+SMT ASE 7",2.13,1.9,N/A,0,0,"Complete
+06/24
+THT ASE 2",2.09,1.4,N/A,0,0,"Complete
+06/25
+AFA 4",1.77,1.05,"Complete
+06/29
+Bracket Cell",1.1,0.67,,,,,,ASD,06/21/2021,Jun,1,Callisto 6512 Global B - A2LL (Service),789933-9140,15,Piloto,"Complete
+06/21
+SMT ASE 4",1.1,2.33,"Complete
+06/23
+SMT ASE 7",1.17,2.1,N/A,0,0,"Complete
+06/24
+THT ASE 4",1.16,1.83,N/A,0,0,"Complete
+06/25
+AFA 4",1.11,1.1,"Complete
+06/29
+Bracket Cell",1.1,1.22,,,,,,ASD,06/21/2021,Jun,1,"Santa Monica T43A, RHD",832255-4020,100,Piloto,"Complete
+06/21
+SMT ASE 2",1.12,2.01,"Complete
+06/22
+SMT ASE 8",1.17,3.45,N/A,0,0,"Complete
+06/23
+THT ASE 5",1.16,1.9,N/A,0,0,"Complete
+06/24
+AFA 5",1.12,1.12,"Complete
+06/26
+Bracket Cell",1.1,1.61,,,,,,ASD,06/21/2021,Jun,1,Santa Fe 12Ch DN8N,827065-0070,200,PPAP,"Complete
+06/21
+SMT ASE 6",2.4,2.86,"Complete
+06/25
+SMT ASE 5",2.57,2.86,N/A,0,0,"Complete
+06/28
+THT ASE 2",2.49,3.51,N/A,0,0,"Complete
+06/30
+AFA 3",2.54,2.95,"Complete
+06/30
+Bracket Cell - Late due to delay in PL",2.5,0.87,,,,,,ASD,06/28/2021,Jul,,McBeal,865533-0030,100,DV,"Complete
+06/29
+SMT ASE 1",7.01,3.72,"Complete
+07/01
+SMT ASE 1",7,5.36,N/A,0,0,"Complete
+07/05
+THT ASE 4",7.08,6.47,N/A,0,0,"Complete
+07/06
+Off line Assy/In LIne FCT",18.6,,"
+
+N/A",N/A,N/A,,,,,,ASD,06/28/2021,Jul,,Callisto 6510 Global B - E2UB,830732-0060,100,Piloto,"Complete
+06/28
+SMT ASE 4",1.7,,"Complete
+06/29
+SMT ASE 7",2.13,2.87,N/A,0,0,"Complete
+06/30
+THT ASE 2",2.11,3.37,N/A,0,0,"Complete
+07/02
+AFA 4",1.78,2.43,"
+
+N/A",N/A,N/A,,,,,,CED,06/28/2021,Jul,,A20 Control Module,807723-0220,102 sets (17 Panels),C1,"Complete
+07/05
+SMT CED 9",6.68,5.52,"Complete
+07/06
+SMT CED 9",6.31,3.98,N/A,0,0,"Complete
+07/09
+CC Cell - ICT_02 Fail (has been resolved)",2.001,1.12,N/A,0,0,N/A,N/A,N/A,N/A,N/A,N/A,,,,,,CED,06/28/2021,Jul,,A20 Volume,748387-0080,"108 sets
+(9 Panels)",C1,N/A,0,0,"Complete
+07/01
+SMT CED 10",5.36,,N/A,0,0,"Complete
+07/05
+THT ASE 5 -  07/06 CC Cell",2.001,3.53,N/A,0,0,N/A,N/A,N/A,N/A,N/A,N/A,,,,,,ASD,06/28/2021,Jul,,El Paso ,866315-0020,80,DP3,"Complete
+06/29
+SMT ASE 1",4.72,5.51,"Complete
+07/02
+SMT ASE 1/Flying Probe",4.75,5.17,N/A,0,0,"Complete
+07/06
+THT ASE 5 Stick Lead / Programming/07/08 - CC",3.63,5.37,N/A,0,0,"Complete
+07/08
+Off Line",N/A,N/A,"Complete
+07/09
+Offl ine",N/A,N/A,,,,,,ASD,07/05/2021,Jul,,Callisto 6516 Global B - T1XX,854372-0020,15,Proto,"Complete
+07/05
+SMT ASE 4",2.14,3.68,"Complete
+07/06
+SMT ASE 7",2.13,3.53,N/A,N/A,N/A,"Complete
+07/13
+THT ASE 4 - SW validation Fail. Has been released",2.1,2.36,N/A,N/A,N/A,"Complete
+07/14
+AFA 5 - GM Server Key Issue - 07/16  FCT & Packing Pending",2.53,6.35,"
+N/A",N/A,N/A,,,,,,ASD,07/05/2021,Jul,,Santa Fe NX4a OB,872391-0010,30,DP1,"Complete
+07/06
+SMT ASE 1",6.36,7.58,"Complete
+07/09
+SMT ASE 1/Flying Probe/Programming",6.36,,N/A,N/A,N/A,"Complete
+07/14
+THT ASE 5",4.32,7.28,N/A,N/A,N/A,"Complete
+07/14
+Off lIne - 07/15 - In Line FCT",,,"Complete
+07/14
+Off line",2.2,,,,,,,ASD,07/05/2021,Jul,,Santa Ana,864278-0020,60,DP3,"Complete
+07/06
+SMT ASE 1",4.56,4.43,"Complete
+07/07
+SMT ASE 8",4.63,5.75,N/A,N/A,N/A,"Complete
+07/08
+THT ASE 5",4.6,2.88,N/A,N/A,N/A,"Complete
+07/12
+AFA 5 - Mechanical Assy Complete",12,8.18,"
+
+N/A",N/A,N/A,,,,,,CED,07/05/2021,Jul,,A20 Earcup,328288-0020,100 sets (25 Panels),C1,"Complete
+07/16
+SMT CED 12 - BSS Run After TSS. Del@yed due to IC discrapancy",6.7,,"Complete
+07/09
+SMT CED 10 - TSS run First",6.7,6.53,N/A,N/A,N/A,"Scheduled for
+07/19
+CC Cell",2,0.63,N/A,N/A,N/A,"
+
+N/A",N/A,N/A,"
+
+N/A",N/A,N/A,,,,,,ASD,07/05/2021,Jul,,GF 6416,867896-0030,21,RWK & Re-Test  (DP2 Units),"
+
+N/A",N/A,N/A,"
+
+N/A",N/A,N/A,"
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A",N/A,N/A,N/A,N/A,N/A,"Complete
+07/09
+AFA 5 - Amps Arrived late",3.03,,"
+
+N/A",N/A,N/A,,,,,,ASD,07/05/2021,Jul,,Callisto 6510 Global B - A2SL-S,789939-1130,120,Piloto,"Complete
+07/07
+SMT ASE 4",1.85,2.11,"Complete
+07/07
+SMT ASE 7",2.36,,"
+
+N/A","
+
+N/A","
+
+N/A","Complete
+07/08
+THT ASE 2",2.32,2.48,N/A,N/A,N/A,"Complete
+07/08
+AFA 4",1.93,,"Complete
+07/09
+Bracket Cell",2.2,,,,,,,ASD,07/05/2021,Jul,,Callisto 6512 Global B - A2LL-S,789933-1140,120,Piloto,"Complete
+07/07
+SMT ASE 4",1.97,2.93,"Complete
+07/07
+SMT ASE 7",2.36,6.35,"
+
+N/A","
+
+N/A","
+
+N/A","Complete
+07/08
+THT ASE 4",2.3,2.03,N/A,N/A,N/A,"Complete
+07/08
+AFA 4",1.98,2.55,"Complete
+07/09
+Bracket Cell",2.2,,,,,,,ASD,07/05/2021,Jul,,Callisto 6508 Global B - BV1HX,870670-0020,13,Reflash,"
+
+N/A",N/A,N/A,"
+
+N/A",N/A,N/A,"
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A",N/A,N/A,N/A,N/A,N/A,"Complete
+07/08
+AFA 4 (DEV-000649)",2.11,,"
+
+N/A",N/A,N/A,,,,,,ASD,07/12/2021,Jul,,Tengshe GEELY 6412DR AMP,832547-1010,301,Piloto,"Complete
+07/12
+SMT ASE 6",3.74,3.51,"Complete
+07/13
+SMT ASE 5",3.81,4.51,"
+
+N/A","
+
+N/A","
+
+N/A","Complete
+07/14
+THT ASE 5",3.74,4.28,N/A,N/A,N/A,"Complete
+07/15
+AFA 5 - DEV-000655",4.5,0.5,"
+
+N/A","
+
+N/A","
+
+N/A",,,,,,ASD,07/12/2021,Jul,,Santa Fe US4 6412Z,857465-0040,300,PPAP,"Complete
+07/12
+SMT ASE 6",6.73,3.83,"Complete
+07/13
+SMT ASE 5",6.8,4.78,"
+
+N/A","
+
+N/A","
+
+N/A","Complete
+07/14
+THT ASE 2",4.34,4.23,N/A,N/A,N/A,"Complete
+07/15
+AFA 3",3.78,4.86,"Complete
+07/16
+Bracket Cell",4,6.63,,,,,,ASD,07/12/2021,Jul,,"6512G2, SGM458 UQP (McBeal app Master+Slave app)",870133-0010,25,DP0,"Complete
+07/14
+SMT ASE 1",3.23,4.15,"Complete
+07/15
+SMT ASE 1",3.23,4.67,"
+
+N/A","
+
+N/A","
+
+N/A","Complete
+07/16
+THT ASE 4",2.86,9.11,N/A,N/A,N/A,"Scheduled for
+07/19
+AFA 5 (Off line Assy/In LIne FCT) - Blue Label",2.86,,"
+
+N/A","
+
+N/A","
+
+N/A",,,,,,ASD,07/12/2021,Jul,,"6712 SGM458UQP+ (McBeal app, Master+slave)",870137-0010,25,DP0,"Complete
+07/14
+SMT ASE 1",3.23,,"Complete
+07/15
+SMT ASE 1",3.23,,"
+
+N/A","
+
+N/A","
+
+N/A","Currently Running
+07/16
+THT ASE 4",2.86,,N/A,N/A,N/A,"Scheduled for
+07/19
+AFA 5 (Off line Assy/In LIne FCT) - Blue Label",2.86,,"
+
+N/A","
+
+N/A","
+
+N/A",,,,,,ASD,07/19/2021,Jul,,Santa Fe DN8 12Ch,801050-0090,200,PPAP,"Scheduled for
+07/21
+SMT ASE 6",2.82,,"Scheduled for
+07/22
+SMT ASE 5",2.86,,"
+
+N/A","
+
+N/A","
+
+N/A","Scheduled for
+07/23
+THT ASE 2",2.56,,N/A,N/A,N/A,"Scheduled for
+07/26
+AFA 3",2.85,,"Scheduled for
+07/26
+Bracket Cell",1.01,,,,,,,ASD,07/19/2021,Jul,,Callisto 6508 Global B - T1XX,860298-0030,100,Proto,"Scheduled for
+07/20
+SMT ASE 4",1.7,,"Scheduled for
+07/21
+SMT ASE 9",1.79,,"
+
+N/A","
+
+N/A","
+
+N/A","Scheduled for
+07/22
+THT ASE 2",2.07,,N/A,N/A,N/A,"Scheduled for
+07/23
+AFA 4",1.83,,"
+
+N/A","
+
+N/A","
+
+N/A",,,,,,ASD,07/19/2021,Jul,,Callisto 6510 Global B - T1XX,860325-0030,100,Proto,"Scheduled for
+07/19
+SMT ASE 4",1.71,,"Scheduled for
+07/20
+SMT ASE 7",2.13,,"
+
+N/A","
+
+N/A","
+
+N/A","Scheduled for
+07/21
+THT ASE 2",2.1,,N/A,N/A,N/A,"Scheduled for
+07/22
+AFA 4",1.78,,"
+
+N/A","
+
+N/A","
+
+N/A",,,,,,ASD,07/19/2021,Jul,,Callisto 6512 Global B - T1XX,767586-0080,100,Proto,"Scheduled for
+07/19
+SMTA ASE 4",1.81,,"Scheduled for
+07/20
+SMT ASE 7",2.13,,"
+
+N/A","
+
+N/A","
+
+N/A","Scheduled for
+07/21
+THT ASE 4",2.09,,N/A,N/A,N/A,"Scheduled for
+07/22
+AFA 4",1.78,,N/A,N/A,N/A,,,,,,ASD,07/19/2021,Jul,,Panda FAW,841580-0020,100,PV,"Scheduled for
+07/19
+SMT ASE 5",2.14,,"Scheduled for
+07/20
+SMT ASE 5/Edge Bonding",1.84,,"
+
+N/A","
+
+N/A","
+
+N/A","Scheduled for
+07/22
+THT ASE 4/Thick CC",2.09,,N/A,N/A,N/A,"Scheduled for
+07/23
+AFA 5",2.11,,N/A,N/A,N/A,,,,,,ASD,07/19/2021,Jul,,Pearl (6712Z Platform DP2),867870-0020,110,DP2 #2,"Scheduled for
+07/21
+SMT ASE 1",7.26,,"Scheduled for
+07/22
+SMT ASE 1/Flying Probe/Edge Bonding",6.92,,"
+
+N/A","
+
+N/A","
+
+N/A","Scheduled for
+07/27
+THT ASE 5",5.38,,N/A,N/A,N/A,"
+
+Scheduled for TBD - AFA 5 (Off line Assy/In LIne FCT)",2.38,,N/A,N/A,N/A,,,,,,ASD,07/19/2021,Jul,,McBeal,865533-0030,35,DP2,"Scheduled for
+07/20
+SMT ASE 1",7,,"Scheduled for
+07/21
+SMT ASE 1",7,,"07/21
+Edge Bonding",1.01,,"Scheduled for
+07/22
+THT ASE 4",6.38,,"07/22
+Thick CC",1.01,,"Scheduled for
+07/23
+AFA 5",8.37,,N/A,N/A,N/A,,,,,,ASD,07/19/2021,Jul,,"A2B,CONVERTER (Parrot) ",858963-0020,30,Proto,"Scheduled for
+07/22
+SMT ASE 2",1.13,,"Scheduled for
+07/22
+SMT ASE 7",2.12,,"07/26
+Edge Bonding
+07/23 Flying Probe",1.01,,"Scheduled for
+07/23
+THT ASE 4",1.11,,N/A,N/A,N/A,"Scheduled for
+07/26
+AFA 3",1.33,,N/A,N/A,N/A,,,,,,ASD,07/19/2021,Jul,,Spetter 6616S P42Q,826519-0080,28,Reflash,"
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A","
+
+N/A",N/A,N/A,N/A,"Scheduled for
+07/21
+AFA 5 (DEV-000644)",2.31,,N/A,N/A,N/A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
