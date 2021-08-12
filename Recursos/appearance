@@ -1,0 +1,48 @@
+   dashboardBody(
+        # Also add some custom CSS to make the title background area the same
+        # color as the rest of the header.
+        tags$head(tags$style(HTML('
+        /* logo */
+       
+        /* main sidebar */
+        /* logo */
+        .skin-blue .main-header .logo {
+                              background-color: #3C8DBC;
+                              }
+
+        /* logo when hovered */
+        .skin-blue .main-header .logo:hover {
+                              background-color: #3C8DBC;
+        }
+                              
+         .skin-blue .main-header .navbar {
+                              background-color: #3C8DBC;
+                              }
+     
+
+        /* main sidebar */
+        .skin-blue .main-sidebar {
+                              background-color: #FCFCFC;
+                              }
+
+        /* active selected tab in the sidebarmenu */
+        .skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
+                              background-color: #FCFCFC;
+                              }
+
+        /* other links in the sidebarmenu */
+        .skin-blue .main-sidebar .sidebar .sidebar-menu a{
+                              background-color: #FCFCFC;
+                              color: #000000;
+                              }
+
+        /* other links in the sidebarmenu when hovered */
+         .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+                              background-color: #367FA9;
+                              }
+        /* toggle button when hovered  */                    
+         .skin-blue .main-header .navbar .sidebar-toggle:hover{
+                              background-color: #367FA9;
+                              }
+                              ')))
+    )
