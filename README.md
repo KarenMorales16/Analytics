@@ -20,3 +20,6 @@ https://datosuc.github.io/Visualizacion-de-datos-con-R/#37
 
 5. R BASIC DATAFRAMES
 https://r-coder.com/funcion-merge-r/
+
+
+https://datanalytics.com/libro_r/shiny.html
