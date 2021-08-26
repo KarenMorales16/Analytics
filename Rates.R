@@ -43,7 +43,7 @@ for( i in 1:length(SMTLinea)){
   }
     
 }
-
+ 
 SMTLinea<- data.frame(LineasSMT)
 
 
