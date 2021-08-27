@@ -12,22 +12,10 @@ datosSMT<- datosSMT[!is.na( datosSMT[,2:2]),]
 datosSMT[,1:1][is.na(datosSMT[,1:1])] <- ""
 
 #Agregamos La linea
-datosSMT$SMTLinea <-data.frame(SMTLinea=ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
+datosSMT$SMTLinea <-(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
+
 SMTLinea <-c(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
-LineasSMT<- (datosSMT$SMTLinea[!is.na( datosSMT$SMTLinea),])
+LineasSMT<- (datosSMT$SMTLinea[!is.na( datosSMT$SMTLinea)])
 
 
-y=0
-for( i in 1:length(SMTLinea)){
-  if(!is.na(SMTLinea[i])){
-    SMTLinea[i]=LineasSMT[y]
-  }
-  else(is.na(SMTLinea[i]))
-  {
-    y=y+1
-  }
-    
-}
-
-SMTLinea<- data.frame(LineasSMT)
 
