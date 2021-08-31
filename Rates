@@ -1,4 +1,13 @@
 
+
+datosSMT<-data.frame(
+SMTProduct=  read_excel(, sheet ="WK 22", range = "A12:A587", col_names = FALSE) ,
+SMTPN=   read_excel(, sheet ="WK 22", range = "B12:B587", col_names = FALSE) ,
+SMTLado=   read_excel( sheet ="WK 22", range = "F12:F587", col_names = FALSE) ,
+SMTRate=  read_excel( sheet ="WK 22", range = "AJ12:AJ587", col_names = FALSE), 
+SMTLinea=""
+)
+
 #Agregamos nombres a los columnas
 colnames(datosSMT)= unlist (c('SMTProduct','SMTPN','SMTLado','SMTRate','SMTLinea'))
 
@@ -14,8 +23,30 @@ datosSMT[,1:1][is.na(datosSMT[,1:1])] <- ""
 #Agregamos La linea
 datosSMT$SMTLinea <-(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
 
-SMTLinea <-c(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
-LineasSMT<- (datosSMT$SMTLinea[!is.na( datosSMT$SMTLinea)])
+Comodin <-c(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
+Arreglo <-  c(datosSMT$SMTLinea[!is.na( datosSMT$SMTLinea)])
+Comodin1 <- c(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
 
+w=0
+  a <-function() {
+   
+    for(i in 1:length(Comodin1)){
+      if (!is.na(Comodin1[i]))
+      {
+        Comodin1[i]<<-Comodin1[i]
+        w<<-w+1
+      }
+      else
+      {
+        Comodin1[i]<<-Arreglo[w]
+      }
+      
+  }
+  }
+  
+  
+a()
 
+comodin2 <- data.frame(Comodin1)
 
+?seq()
