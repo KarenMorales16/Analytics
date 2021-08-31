@@ -56,7 +56,9 @@ a <-function() {
 
 a()  
 
-datosSMT$SMTLinea <- data.frame(Comodin1)
+datosSMT$SMTLinea <- data.frame(ComodinSMT)
 
+PCS=128
 
+Rates=(datosSMT$SMTRate[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="TOP"])
 
