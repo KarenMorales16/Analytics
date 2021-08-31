@@ -8,6 +8,15 @@ SMTRate=  read_excel( sheet ="WK 22", range = "AJ12:AJ587", col_names = FALSE),
 SMTLinea=""
 )
 
+
+datosSMT<-data.frame(
+SMTProduct=  read_excel("//tj-vault/SupplyChain/1 Electronics/2 Production Plans/1 ASD/PRODUCTION SCHEDULE FY22/SMT FY22/SMTASE AUGUST FY22.xlsx", sheet ="WK 22", range = "A12:A587", col_names = FALSE) ,
+SMTPN=   read_excel("//tj-vault/SupplyChain/1 Electronics/2 Production Plans/1 ASD/PRODUCTION SCHEDULE FY22/SMT FY22/SMTASE AUGUST FY22.xlsx", sheet ="WK 22", range = "B12:B587", col_names = FALSE) ,
+SMTLado=   read_excel("//tj-vault/SupplyChain/1 Electronics/2 Production Plans/1 ASD/PRODUCTION SCHEDULE FY22/SMT FY22/SMTASE AUGUST FY22.xlsx", sheet ="WK 22", range = "F12:F587", col_names = FALSE) ,
+SMTRate=  read_excel("//tj-vault/SupplyChain/1 Electronics/2 Production Plans/1 ASD/PRODUCTION SCHEDULE FY22/SMT FY22/SMTASE AUGUST FY22.xlsx", sheet ="WK 22", range = "AJ12:AJ587", col_names = FALSE), 
+SMTLinea=""
+)
+
 #Agregamos nombres a los columnas
 colnames(datosSMT)= unlist (c('SMTProduct','SMTPN','SMTLado','SMTRate','SMTLinea'))
 
@@ -23,30 +32,31 @@ datosSMT[,1:1][is.na(datosSMT[,1:1])] <- ""
 #Agregamos La linea
 datosSMT$SMTLinea <-(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
 
-Comodin <-c(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
-Arreglo <-  c(datosSMT$SMTLinea[!is.na( datosSMT$SMTLinea)])
-Comodin1 <- c(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
+#Creamos un arreglo con las Lineas Existentes
+ArregloSMT <-  c(datosSMT$SMTLinea[!is.na( datosSMT$SMTLinea)])
+#Agreganmos un arreglo con los datos ya que este sera nuestro auxiliar oara crear la columna
+ComodinSMT <- c(ifelse(datosSMT$SMTProduct=="SMT", paste(datosSMT$SMTProduct,datosSMT$SMTPN, sep =" "),NA))
 
 w=0
-  a <-function() {
-   
-    for(i in 1:length(Comodin1)){
-      if (!is.na(Comodin1[i]))
-      {
-        Comodin1[i]<<-Comodin1[i]
-        w<<-w+1
-      }
-      else
-      {
-        Comodin1[i]<<-Arreglo[w]
-      }
-      
-  }
-  }
+a <-function() {
   
-  
-a()
+  for(i in 1:length(ComodinSMT)){
+    if (!is.na(ComodinSMT[i]))
+    {
+      ComodinSMT[i]<<-ComodinSMT[i]
+      w<<-w+1
+    }
+    else
+    {
+      ComodinSMT[i]<<-ArregloSMT[w]
+    }
+    
+  }
+}
 
-comodin2 <- data.frame(Comodin1)
+a()  
 
-?seq()
+datosSMT$SMTLinea <- data.frame(Comodin1)
+
+
+
