@@ -1,0 +1,94 @@
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
+
+
+library(tidyverse)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(dbplyr)
+library(sqldf)
+library(shiny)
+library(DT)
+library(shinydashboard)
+library(sf)
+library(shinymaterial)
+
+Semanas = list()
+datosSMT= data.frame()
+
+    ui <-   dashboardPage(
+            dashboardHeader(title = "Rates Tool"),
+            dashboardSidebar(  
+            fluidPage(
+            fileInput('file1', 'Choose xlsx file',accept = c(".xlsx")),uiOutput('Lista'))),
+            dashboardBody(
+            tableOutput("contents")
+            ))
+        
+        
+        
+    server <- shinyServer(function(input, output,  session){
+
+        df_ListaFile1 <- reactive({
+            req(input$file1)
+            inExcel <- input$file1
+            Semanas <- c(excel_sheets(as.character(inExcel$datapath)))
+            Semanas[!grepl("WK", Semanas)] <- NA
+            Semanas<<- Semanas[!is.na(Semanas)]
+        })
+        
+        #Imprimir lista de ListBox
+        output$Lista <- renderUI({
+            df_ListaFile1()
+            inFile <- input$file1
+            if (is.null(inFile))
+            return(NULL)
+            select <-(length(c(Semanas))-1)
+            selectInput("choice", label = h5("Fiscal Month"), 
+            choices = Semanas, 
+            selected =1 )
+          
+        })
+        
+         df_datos <- reactive({
+            InFile<- input$file1
+            InLista<- input$file1
+            if (is.null(InFile) & is.null(InLista))
+            return(NULL)
+            else
+            datosSMT<-data.frame(
+            SMTProduct= unlist( read_excel(InFile$datapath, sheet =input$choice, range = "A12:A587", col_names = FALSE)) ,
+            SMTPN=  unlist( read_excel(InFile$datapath, sheet =input$choice, range = "B12:B587", col_names = FALSE)) ,
+            SMTLado=  unlist( read_excel(InFile$datapath, sheet =input$choice, range = "F12:F587", col_names = FALSE)) ,
+            SMTRate= unlist( read_excel(InFile$datapath, sheet =input$choice, range = "AJ12:AJ587", col_names = FALSE)),
+            SMTLinea= unlist(c(12:587))) 
+            
+            #Agregamos nombres a los columnas
+            colnames(datosSMT)= unlist (c('SMTProduct','SMTPN','SMTLado','SMTRate','SMTLinea'))
+            
+            #Eliminamos los datos irrelevantes en este caso Amplificadores ya que no tiene
+            #valor significativo para nuestra data
+            datosSMT[,2:2][datosSMT[,2:2] =="AMPLIFIER"] <- NA
+            datosSMT<- datosSMT[!is.na( datosSMT[,2:2]),]
+            
+            
+        })
+               
+            
+        output$contents <- renderTable({
+            df_datos()
+        })
+        
+        })
+  
+# Run the application 
+shinyApp(ui = ui, server = server)
