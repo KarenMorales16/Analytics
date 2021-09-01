@@ -62,3 +62,28 @@ PCS=128
 
 Rates=(datosSMT$SMTRate[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="TOP"])
 
+PCS=128
+
+
+W1RatesBSS=data.frame(SMT= "W22",
+                      Product= datosSMT$SMTProduct[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="BOT"],
+                      PN= datosSMT$SMTPN[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="BOT"],
+                      Lado= "BSS",
+                      Linea=datosSMT$SMTLinea[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="BOT"],
+                      Rate=round(as.numeric(datosSMT$SMTRate[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="BOT"]),digits = 5),
+                      Cantidad=PCS,
+                      Hrs=(PCS/as.numeric(datosSMT$SMTRate[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="BOT"])))
+                    
+
+W1RatesTSS=data.frame(SMT= "W22",
+                      Product= datosSMT$SMTProduct[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="TOP"],
+                      PN= datosSMT$SMTPN[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="TOP"],
+                      Lado= "TSS",
+                      Linea=datosSMT$SMTLinea[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="TOP"],
+                      Rate=round(as.numeric(datosSMT$SMTRate[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="TOP"]), digits = 5),
+                      Cantidad=PCS,
+                      Hrs=(PCS/as.numeric(datosSMT$SMTRate[datosSMT$SMTPN=="791283-0080"  & datosSMT$SMTLado=="TOP"])))
+
+Datos= merge(W1RatesBSS, W1RatesTSS, all = TRUE)
+
+
