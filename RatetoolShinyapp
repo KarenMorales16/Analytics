@@ -29,10 +29,20 @@ datosSMT= data.frame()
             dashboardHeader(title = "Rates Tool"),
             dashboardSidebar(  
             fluidPage(
-            fileInput('file1', 'Choose xlsx file',accept = c(".xlsx")),uiOutput('Lista'))),
+            fileInput('file1', 'Choose xlsx file',accept = c(".xlsx")),uiOutput('Lista'),uiOutput('CantidadPcs'))),
             dashboardBody(
-            tableOutput("contents")
-            ))
+            
+              fluidRow(
+                tabBox(
+                  title = "Supply Chain Rates",
+                  # The id lets us use input$tabset1 on the server to find the current tab
+                  id = "tabset1", height = "100%", width = 800,
+                  tabPanel("SMT",DT::dataTableOutput("contentsData")),
+                  tabPanel("THT",),
+                  tabPanel("AFA",)
+                ))
+              )
+            )
         
         
         
@@ -52,12 +62,23 @@ datosSMT= data.frame()
             inFile <- input$file1
             if (is.null(inFile))
             return(NULL)
-            select <-(length(c(Semanas))-1)
+
             selectInput("choice", label = h5("Fiscal Month"), 
             choices = Semanas, 
             selected =1 )
           
         })
+        
+        #Imprimir lista de ListBox
+        output$CantidadPcs <- renderUI({
+          df_ListaFile1()
+          inFile <- input$file1
+          if (is.null(inFile))
+          return(NULL)
+          
+          numericInput("pcs", label = ("Qty (NPI Build)"), value = 1)
+        })
+        
         
          df_datos <- reactive({
             InFile<- input$file1
@@ -66,26 +87,75 @@ datosSMT= data.frame()
             return(NULL)
             else
             datosSMT<-data.frame(
-            SMTProduct= unlist( read_excel(InFile$datapath, sheet =input$choice, range = "A12:A587", col_names = FALSE)) ,
-            SMTPN=  unlist( read_excel(InFile$datapath, sheet =input$choice, range = "B12:B587", col_names = FALSE)) ,
-            SMTLado=  unlist( read_excel(InFile$datapath, sheet =input$choice, range = "F12:F587", col_names = FALSE)) ,
-            SMTRate= unlist( read_excel(InFile$datapath, sheet =input$choice, range = "AJ12:AJ587", col_names = FALSE)),
-            SMTLinea= unlist(c(12:587))) 
+            PN=  unlist( read_excel(InFile$datapath, sheet =input$choice, range = "B12:B587", col_names = FALSE)) ,
+            Product= unlist( read_excel(InFile$datapath, sheet =input$choice, range = "A12:A587", col_names = FALSE)) ,
+            Process=  unlist( read_excel(InFile$datapath, sheet =input$choice, range = "F12:F587", col_names = FALSE)) ,
+            Line= unlist(c(12:587)),
+            Qty= unlist(c(12:587)),
+            Rate= unlist( read_excel(InFile$datapath, sheet =input$choice, range = "AJ12:AJ587", col_names = FALSE)),
+            SMTHrs= unlist(c(12:587))) 
             
             #Agregamos nombres a los columnas
-            colnames(datosSMT)= unlist (c('SMTProduct','SMTPN','SMTLado','SMTRate','SMTLinea'))
+            colnames(datosSMT)= unlist (c('PN','Product','Process','Line', 'Qty', 'Rate','SMTHrs'))
             
             #Eliminamos los datos irrelevantes en este caso Amplificadores ya que no tiene
             #valor significativo para nuestra data
-            datosSMT[,2:2][datosSMT[,2:2] =="AMPLIFIER"] <- NA
+            datosSMT[,1:1][datosSMT[,1:1] =="AMPLIFIER"] <- NA
             datosSMT<- datosSMT[!is.na( datosSMT[,2:2]),]
             
+            #Los datos en NA los colocamos en vacio para que nos permitan trabajar con ellos
+            # y no sean descartados
+            datosSMT[,1:1][is.na(datosSMT[,1:1])] <- ""
             
+            #Agregamos La linea
+            datosSMT$Line <-(ifelse(datosSMT$Product=="SMT", paste(datosSMT$Product,datosSMT$PN, sep =" "),NA))
+            
+            #Creamos un arreglo con las Lineas Existentes
+            ArregloSMT <-  c(datosSMT$Line[!is.na( datosSMT$Line)])
+            #Agreganmos un arreglo con los datos ya que este sera nuestro auxiliar oara crear la columna
+            ComodinSMT <- c(ifelse(datosSMT$Product=="SMT", paste(datosSMT$Product,datosSMT$PN, sep =" "),NA))
+             w=0
+            for(i in 1:length(ComodinSMT)){
+              if (!is.na(ComodinSMT[i]))
+              {
+                ComodinSMT[i]<-ComodinSMT[i]
+                w<-w+1
+              }
+              else
+              {
+                ComodinSMT[i]<-ArregloSMT[w]
+              }
+              
+            }
+          # Agregamos los valores de las lineas a nuestra data principal  
+          datosSMT$Line <- ComodinSMT
+          # Agregamos las pcs del input a la data
+          datosSMT$Qty <-  input$pcs
+          #Calculamos las Hrs con la cantidad de pcs/ Rate
+          datosSMT$SMTHrs <- round((as.numeric(input$pcs)/as.numeric(datosSMT$Rate)),digits=5)
+          
+          
+        
+          #Eliminamos los datos irrelevantes en este caso los Valore de ASE 1,2...
+          #valor significativo para nuestra data
+          datosSMT$PN[grepl("ASE", datosSMT$PN)] <- NA
+          datosSMT<- datosSMT[!is.na(datosSMT$PN),]
+          
+          #Eliminamos los datos irrelevantes en este caso los Valore de ASE FAM
+          #valor significativo para nuestra data
+          datosSMT$Product[grepl("FAM", datosSMT$Product)] <- NA
+          datosSMT<- datosSMT[!is.na(datosSMT$Product),]
+          
+          colnames(datosSMT)= unlist (c('PN','Product','Process','Line', 'Qty', 'Rate','Time based on Rates (Hrs)'))
+          
+          #Desplegamos los datos
+          datosSMT
         })
                
             
-        output$contents <- renderTable({
-            df_datos()
+         output$contentsData<- DT::renderDataTable({
+           df <- df_datos()
+           DT::datatable(df)
         })
         
         })
