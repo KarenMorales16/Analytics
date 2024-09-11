@@ -1,0 +1,220 @@
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
+
+
+library(tidyverse)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(dbplyr)
+library(sqldf)
+library(shiny)
+library(DT)
+library(shinydashboard)
+library(sf)
+library(shinymaterial)
+
+Semanas = list()
+datosSMT= data.frame()
+
+ui <-   dashboardPage(
+    dashboardHeader(title = "Sesión Inventarios"),
+    dashboardSidebar(  
+        fluidPage(
+            fileInput('fileDispatch', 'Choose Axionlog xlsx file',accept = c(".xlsx")),
+            fileInput('fileDispatch1', 'Choose Jr Foods xlsx file',accept = c(".xlsx")),
+            fileInput('fileDispatch2', 'Choose Afal xlsx file',accept = c(".xlsx")),
+            uiOutput('PartNumber'),
+        )),
+    dashboardBody(
+        
+        fluidRow(
+            tabBox(
+                title = "Hrs Dispatch",
+                # The id lets us use input$tabset1 on the server to find the current tab
+                id = "tabset1", height = "100%", width = 800,
+                tabPanel(" ",DT::dataTableOutput("contentsDispatch"))
+            ))
+    )
+)
+
+
+
+server <- shinyServer(function(input, output,  session){
+    
+
+    
+ 
+    output$PartNumber <- renderUI({
+        inFile <- input$fileDispatch
+        inFile1 <- input$fileDispatch1
+        inFile2 <- input$fileDispatch2
+        if (is.null(inFile) | is.null(inFile1) | is.null(inFile2))
+            return(NULL)
+        
+        textInput("text", label = ("Teclea el la descrión o proveedor del articulo"),  value = "")
+    })
+    
+    
+    df_datosSMT <- reactive({
+      InFile <- input$fileDispatch
+      InFile1 <- input$fileDispatch1
+      InFile2 <- input$fileDispatch2
+     
+        if (is.null(InFile) | is.null(InFile1) | is.null(InFile2))
+            return(NULL)
+        else
+            
+      Reporte_CJR_Conferencia_AXL <- data.frame(read_excel(InFile$datapath, sheet = "Inventarios", col_names = FALSE))
+
+      # Buscar la primera fila que no tenga valores nulos
+      fila_encabezado_AXL <- which(complete.cases(Reporte_CJR_Conferencia_AXL))[1]
+      # Asignar esa fila como los nombres de las columnas
+      names(Reporte_CJR_Conferencia_AXL) <- Reporte_CJR_Conferencia_AXL[fila_encabezado_AXL, ]
+      # Remover las filas hasta el encabezado
+      Reporte_CJR_Conferencia_AXL <- Reporte_CJR_Conferencia_AXL[-(1:fila_encabezado_AXL), ]
+      # Reiniciar los índices
+      rownames(Reporte_CJR_Conferencia_AXL) <- NULL
+      # Mostrar el dataframe con el nuevo encabezado
+   
+      
+      
+      Reporte_CJR_Conferencia_AXL<- Reporte_CJR_Conferencia_AXL%>% 
+        rename("SKU"=Wrin, "Articulo"=Descripcion,Demanda='VTA \r\n7',Inventario='On hand\r\ncajas',Estatus=Riesgo) %>% 
+        mutate(Dias_Cobertura=as.numeric(`Cobertura\r\nDias`), OL='AXL',CEDIS='COAX') %>% 
+        select(OL,CEDIS,SKU,Articulo,Proveedor,Estatus,Inventario,Demanda,Dias_Cobertura,Comentarios) %>% 
+        mutate(SKU=toupper(SKU), Articulo=toupper(Articulo),Proveedor=toupper(Proveedor),Estatus=toupper(Estatus),Comentarios=toupper(Comentarios),Demanda=toupper(Demanda),
+               Dias_Cobertura=toupper(Dias_Cobertura)) %>% 
+        mutate(Demanda=as.numeric(sprintf("%.2f",as.numeric(as.character(Demanda)))),
+               Dias_Cobertura=as.numeric(sprintf("%.2f",as.numeric(as.character(Dias_Cobertura))))) %>% 
+        filter(!((is.na(Demanda)  | Demanda==0 )  & (is.na(Inventario)  | Inventario ==0 )))
+    
+        ##Reporte_CJR_Conferencia_AXL
+      
+        
+        Reporte_CJR_Conferencia_JRF <- data.frame(read_excel(InFile1$datapath,   sheet = "Inventario")) %>% 
+          mutate(SKU=Código, "Articulo"= Descripción, Comentarios=Status, Proveedor=Nombre) %>%
+          filter(Proveedor!="Proveedor") %>% 
+          mutate(Dias_Cobertura=as.numeric("Días.De.Rendimiento")) %>% 
+          mutate(Estatus=ifelse(Dias_Cobertura<=7, "RIESGO", "ok"),OL='JRF', CEDIS='JUNIOR FOODS',Demanda=Consumo) %>% 
+          select(OL,CEDIS,SKU,Articulo,Proveedor,Estatus,Inventario,Demanda,Dias_Cobertura,Comentarios) 
+        
+       ## Reporte_CJR_Conferencia_JRF
+        
+        Reporte_CJR_Conferencia_ICR <- data.frame(read_excel(InFile2$datapath,sheet = "Resumen comentarios" ,col_names = FALSE))
+        
+        
+        # Buscar la primera fila que no tenga valores nulos
+        fila_encabezado <- which(complete.cases(Reporte_CJR_Conferencia_ICR))[1]
+        # Asignar esa fila como los nombres de las columnas
+        names(Reporte_CJR_Conferencia_ICR) <- Reporte_CJR_Conferencia_ICR[fila_encabezado, ]
+        # Remover las filas hasta el encabezado
+        Reporte_CJR_Conferencia_ICR <- Reporte_CJR_Conferencia_ICR[-(1:fila_encabezado), ]
+        # Reiniciar los índices
+        rownames(Reporte_CJR_Conferencia_ICR) <- NULL
+        # Mostrar el dataframe con el nuevo encabezado
+        head(Reporte_CJR_Conferencia_ICR)
+        
+        # Renombrar la columna 1
+        names(Reporte_CJR_Conferencia_ICR)[1] <- 'PROV'
+        
+        # Renombrar las columnas en el dataframe Reporte_CJR_Conferencia_ICR
+        names(Reporte_CJR_Conferencia_ICR)[7]  <- 'Inventario_TJ'
+        names(Reporte_CJR_Conferencia_ICR)[8]  <- 'Demanda_TJ'
+        names(Reporte_CJR_Conferencia_ICR)[9]  <- 'Cobertura_TJ'
+        
+        names(Reporte_CJR_Conferencia_ICR)[10] <- 'Inventario_GDL'
+        names(Reporte_CJR_Conferencia_ICR)[11] <- 'Demanda_GDL'
+        names(Reporte_CJR_Conferencia_ICR)[12] <- 'Cobertura_GDL'
+        
+        names(Reporte_CJR_Conferencia_ICR)[13] <- 'Inventario_HRM'
+        names(Reporte_CJR_Conferencia_ICR)[14] <- 'Demanda_HRM'
+        names(Reporte_CJR_Conferencia_ICR)[15] <- 'Cobertura_HRM'
+        
+        names(Reporte_CJR_Conferencia_ICR)[16] <- 'Inventario_TOTAL'
+        names(Reporte_CJR_Conferencia_ICR)[17] <- 'Demanda_TOTAL'
+        names(Reporte_CJR_Conferencia_ICR)[18] <- 'Cobertura_TOTAL'
+        names(Reporte_CJR_Conferencia_ICR)[4] <- 'negocio'
+      
+     
+        Reporte_CJR_Conferencia_ICR<- Reporte_CJR_Conferencia_ICR %>% 
+          rename("Articulo"=Descripción) %>% 
+          mutate(OL='ICR', SKU=CodigoICR, 
+            Comentarios=paste(ifelse((is.na(Motivo)  | Motivo==0), "", Motivo), ifelse((is.na(ETA)  | ETA==0), "", ETA),
+                        ifelse((is.na(Detalle)| Detalle==0), "", Detalle), sep = "\r")) %>% filter(grepl("ICR",negocio)) 
+          
+        Reporte_CJR_Conferencia_AFL<-Reporte_CJR_Conferencia_ICR %>% 
+          mutate(Cobertura_TJ=as.numeric(sprintf("%.2f",as.numeric(as.character(Cobertura_TJ)))),
+                 Cobertura_GDL=as.numeric(sprintf("%.2f",as.numeric(as.character(Cobertura_GDL)))),
+                 Cobertura_HRM=as.numeric(sprintf("%.2f",as.numeric(as.character(Cobertura_HRM)))),
+                 Cobertura_TOTAL=as.numeric(sprintf("%.2f",as.numeric(as.character(Cobertura_TOTAL))))) %>% 
+          mutate(Demanda_TJ=as.numeric(sprintf("%.2f",as.numeric(as.character(Demanda_TJ)))),
+                 Demanda_GDL=as.numeric(sprintf("%.2f",as.numeric(as.character(Demanda_GDL)))),
+                 Demanda_HRM=as.numeric(sprintf("%.2f",as.numeric(as.character(Demanda_HRM)))),
+                 Demanda_TOTAL=as.numeric(sprintf("%.2f",as.numeric(as.character(Demanda_TOTAL)))),
+          )%>% 
+          select(OL,SKU,Articulo,Proveedor,
+                 Comentarios,
+                 Inventario_TJ,
+                 Demanda_TJ,
+                 Cobertura_TJ,
+                 Inventario_GDL,
+                 Demanda_GDL,
+                 Cobertura_GDL,
+                 Inventario_HRM,
+                 Demanda_HRM,
+                 Cobertura_HRM,
+                 Inventario_TOTAL,
+                 Demanda_TOTAL,
+                 Cobertura_TOTAL
+          ) 
+        
+        # Tomando como base el dataframe que ya has creado, Reporte_CJR_Conferencia_AFL
+        Reporte_CJR_Conferencia_AFL <- Reporte_CJR_Conferencia_AFL %>%
+          pivot_longer(cols = starts_with("Inventario_") | starts_with("Demanda_") | starts_with("Cobertura_") , 
+                       names_to = c(".value", "Ubicacion"),
+                       names_sep = "_") 
+        
+        
+        # Ver el resultado
+        Reporte_CJR_Conferencia_AFL<- Reporte_CJR_Conferencia_AFL %>% 
+          rename('CEDIS'= Ubicacion,'Dias_Cobertura'=Cobertura) %>% 
+          mutate(CEDIS=replace(CEDIS, CEDIS %in% "TJ", "TIJUANA")) %>% 
+          mutate(CEDIS=replace(CEDIS, CEDIS %in% "GDL", "GUADALAJARA")) %>% 
+          mutate(CEDIS=replace(CEDIS, CEDIS %in% "HRM", "HERMOSILLO")) %>% 
+          mutate(CEDIS=replace(CEDIS, CEDIS %in% "TOTAL", "TOTAL ICR")) %>% 
+          mutate(Estatus=ifelse(Dias_Cobertura<=7, "RIESGO", "ok")) %>% 
+          select(OL,CEDIS,SKU,Articulo,Proveedor,Estatus,Inventario,Demanda,Dias_Cobertura,Comentarios) 
+        
+        
+        DataFrame_Total<-rbind(Reporte_CJR_Conferencia_AFL, Reporte_CJR_Conferencia_JRF,Reporte_CJR_Conferencia_AXL) %>% 
+          mutate(SKU=toupper(SKU), Articulo=toupper(Articulo),Proveedor=toupper(Proveedor),Estatus=toupper(Estatus),Comentarios=toupper(Comentarios),Demanda=toupper(Demanda),
+                 Dias_Cobertura=toupper(Dias_Cobertura)) %>% 
+          mutate(Demanda=as.numeric(sprintf("%.2f",as.numeric(as.character(Demanda)))),
+                 Dias_Cobertura=as.numeric(sprintf("%.2f",as.numeric(as.character(Dias_Cobertura))))) %>% 
+          filter(!((is.na(Demanda)  | Demanda==0 )  & (is.na(Inventario)  | Inventario ==0 )))
+        
+    })
+    
+
+    
+    output$contentsDispatch<- DT::renderDataTable({
+        df <- df_datosSMT()
+        DT::datatable(df)
+    })
+    
+ 
+    
+    
+})
+
+# Run the application 
+shinyApp(ui = ui, server = server)
